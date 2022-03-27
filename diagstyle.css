@@ -1,0 +1,108 @@
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+#repartition {
+	border: 3px solid black;
+	border-collapse : collapse;
+}
+#repartition > tbody> tr >td {
+	border : 3px solid black;
+}
+
+
+.draggable {
+    cursor: move;
+}
+
+ul{
+ list-style-type:none;
+ }
+
+ li{
+ display:inline;
+}
+
+ul li a{
+ background-color:#6495ED;
+ color:black;
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+ border:2px solid;
+}
+
+ul li a:hover{
+ background-color:#D3D3D3;
+ border-color:#696969 #DCDCDC #DCDCDC #696969;
+}
+
+
+svg{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*Cf RECT_STROKE_WIDTH = 6 in Javascript code. */
+rect{
+	fill: rgb(0,0,255); 
+	stroke-width:6; 
+	stroke:rgb(0,0,0);
+}
+
+line{
+	stroke: black;
+	stroke-width:4;
+}
+
+polygon{
+	stroke: black;
+	stroke-width:4;
+	fill: lightgray;
+}
+
+path{
+	stroke: #6666ff; 
+	stroke-width: 1px; 
+/*	fill: none; */
+/*	marker-end: url(#markerArrow);*/
+}
+
+marker > path {
+	fill: #0000ff; 
+}
+
