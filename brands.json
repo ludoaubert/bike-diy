@@ -1,11 +1,11 @@
-{
-	{"id":1, "TypeCode":"BRAND", "Code":"TRP", "Libelle":"Tektro Racing Product"},
-	{"id":2, "TypeCode":"BRAND", "Code":"TCS", "Libelle":"Tubus Carrier System"},
-	{"id":3, "TypeCode":"BRAND", "Code":"SHO", "Libelle":"Shimano"},
-	{"id":4, "TypeCode":"BRAND", "Code":"SKS", "Libelle":"SKS"},
-	{"id":5, "TypeCode":"BRAND", "Code":"DECAT", "Libelle":"Decathlon"},
-	{"id":6, "TypeCode":"BRAND", "Code":"SCHW", "Libelle":"Schwalbe"},
-	{"id":7, "TypeCode":"BRAND", "Code":"MBCN", "Libelle":"Motobecane"},
-	{"id":8, "TypeCode":"BRAND", "Code":"PGT", "Libelle":"Peugeot"},
-	{"id":9, "TypeCode":"BRAND", "Code":"ORTLB", "Libelle":"Ortlieb"}
-}
+[
+	{"id":1, "Code":"TRP", "Libelle":"Tektro Racing Product"},
+	{"id":2, "Code":"TCS", "Libelle":"Tubus Carrier System"},
+	{"id":3, "Code":"SHO", "Libelle":"Shimano"},
+	{"id":4, "Code":"SKS", "Libelle":"SKS"},
+	{"id":5, "Code":"DECAT", "Libelle":"Decathlon"},
+	{"id":6, "Code":"SCHW", "Libelle":"Schwalbe"},
+	{"id":7, "Code":"MBCN", "Libelle":"Motobecane"},
+	{"id":8, "Code":"PGT", "Libelle":"Peugeot"},
+	{"id":9, "Code":"ORTLB", "Libelle":"Ortlieb"}
+]

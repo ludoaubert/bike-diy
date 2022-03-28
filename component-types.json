@@ -1,17 +1,17 @@
-{
+[
 	
-	{"id":1, "TypeCode":"COMPTYPE", "Code":"RACK", "Libelle":"Bike Rack"},
-	{"id":2, "TypeCode":"COMPTYPE", "Code":"MUDGUARD", "Libelle":"Mud Guard"},
-	{"id":3, "TypeCode":"COMPTYPE", "Code":"BRAKE", "Libelle":"Brake"},
-	{"id":4, "TypeCode":"COMPTYPE", "Code":"BIKE", "Libelle":"Complete Bike"},
-	{"id":5, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC", "Libelle":"Disc Brake"},
-	{"id":6, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
-	{"id":7, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/HYDR", "Libelle":"Hydrolic Disc Brake"},
-	{"id":8, "TypeCode":"COMPTYPE", "Code":"BIKE/ROAD", "Libelle":"Complete Bike. Road Bike"},
-	{"id":9, "TypeCode":"COMPTYPE", "Code":"BIKE/MTB", "Libelle":"Complete Bike. Mountain Bike"},
-	{"id":10, "TypeCode":"COMPTYPE", "Code":"PANNIER", "Libelle":"Bike Panniers"},
-	{"id":11, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
-	{"id":12, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA/CLP", "Libelle":"Mecanical Disc Brake Caliper"},
-	{"id":13, "TypeCode":"COMPTYPE", "Code":"RACK/FRONT", "Libelle":"Front Bike Rack"},
-	{"id":14, "TypeCode":"COMPTYPE", "Code":"RACK/BACK", "Libelle":"Back Bike Rack"}
-}
+	{"id":1, "Code":"RACK", "Libelle":"Bike Rack"},
+	{"id":2, "Code":"MUDGUARD", "Libelle":"Mud Guard"},
+	{"id":3, "Code":"BRAKE", "Libelle":"Brake"},
+	{"id":4, "Code":"BIKE", "Libelle":"Complete Bike"},
+	{"id":5, "Code":"BRAKE/DISC", "Libelle":"Disc Brake"},
+	{"id":6, "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
+	{"id":7, "Code":"BRAKE/DISC/HYDR", "Libelle":"Hydrolic Disc Brake"},
+	{"id":8, "Code":"BIKE/ROAD", "Libelle":"Complete Bike. Road Bike"},
+	{"id":9, "Code":"BIKE/MTB", "Libelle":"Complete Bike. Mountain Bike"},
+	{"id":10, "Code":"PANNIER", "Libelle":"Bike Panniers"},
+	{"id":11, "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
+	{"id":12, "Code":"BRAKE/DISC/MECA/CLP", "Libelle":"Mecanical Disc Brake Caliper"},
+	{"id":13, "Code":"RACK/FRONT", "Libelle":"Front Bike Rack"},
+	{"id":14, "Code":"RACK/BACK", "Libelle":"Back Bike Rack"}
+]
