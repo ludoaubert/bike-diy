@@ -9,4 +9,9 @@
 	{"id":7, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/HYDR", "Libelle":"Hydrolic Disc Brake"},
 	{"id":8, "TypeCode":"COMPTYPE", "Code":"BIKE/ROAD", "Libelle":"Complete Bike. Road Bike"},
 	{"id":9, "TypeCode":"COMPTYPE", "Code":"BIKE/MTB", "Libelle":"Complete Bike. Mountain Bike"},
+	{"id":10, "TypeCode":"COMPTYPE", "Code":"PANNIER", "Libelle":"Bike Panniers"},
+	{"id":11, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
+	{"id":12, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA/CLP", "Libelle":"Mecanical Disc Brake Caliper"},
+	{"id":13, "TypeCode":"COMPTYPE", "Code":"RACK/FRONT", "Libelle":"Front Bike Rack"},
+	{"id":14, "TypeCode":"COMPTYPE", "Code":"RACK/BACK", "Libelle":"Back Bike Rack"}
 }
