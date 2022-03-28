@@ -1,0 +1,6 @@
+
+{
+	{"id":1, "TypeCode":"PRODUCT", "Code":"BP45MM28I", "Libelle":"SKS Bluemels Primus 45mm 28Inch", "id_brand":4, "id_comp":2, "SerialNumber":""},
+	{"id":2, "TypeCode":"PRODUCT", "Code":"GTLOOP", "Libelle":"SKS GT Loop Rack Connection For Mudguards", "id_brand":4, "id_comp":2, "SerialNumber":""}
+	{"id":3, "TypeCode":"PRODUCT", "Code":"TRI-RC500", "Libelle":"triban rc500 black disc", "id_brand":5, "id_comp":8, "SerialNumber":""}
+}

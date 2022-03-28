@@ -1,0 +1,7 @@
+{
+	{"id":1, "TypeCode":"BRAND", "Code":"TRP", "Libelle":"Tektro Racing Product"},
+	{"id":2, "TypeCode":"BRAND", "Code":"TCS", "Libelle":"Tubus Carrier System"},
+	{"id":3, "TypeCode":"BRAND", "Code":"SHO", "Libelle":"Shimano"},
+	{"id":4, "TypeCode":"BRAND", "Code":"SKS", "Libelle":"SKS"},
+	{"id":5, "TypeCode":"BRAND", "Code":"DECAT", "Libelle":"Decathlon"}
+}

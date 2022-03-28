@@ -1,0 +1,12 @@
+{
+	
+	{"id":1, "TypeCode":"COMPTYPE", "Code":"RACK", "Libelle":"Bike Rack"},
+	{"id":2, "TypeCode":"COMPTYPE", "Code":"MUDGUARD", "Libelle":"Mud Guard"},
+	{"id":3, "TypeCode":"COMPTYPE", "Code":"BRAKE", "Libelle":"Brake"},
+	{"id":4, "TypeCode":"COMPTYPE", "Code":"BIKE", "Libelle":"Complete Bike"},
+	{"id":5, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC", "Libelle":"Disc Brake"},
+	{"id":6, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
+	{"id":7, "TypeCode":"COMPTYPE", "Code":"BRAKE/DISC/HYDR", "Libelle":"Hydrolic Disc Brake"},
+	{"id":8, "TypeCode":"COMPTYPE", "Code":"BIKE/ROAD", "Libelle":"Complete Bike. Road Bike"},
+	{"id":9, "TypeCode":"COMPTYPE", "Code":"BIKE/MTB", "Libelle":"Complete Bike. Mountain Bike"},
+}
