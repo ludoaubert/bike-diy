@@ -1,18 +1,27 @@
 {
-	{"id":1, "TypeCode":"BRAND", "Code":"TRP", "Libelle":"Tektro Racing Product", "ParentTypeCode":null, "ParentCode":null},
-	{"id":2, "TypeCode":"BRAND", "Code":"TCS", "Libelle":"Tubus Carrier System", "ParentTypeCode":null, "ParentCode":null},
-	{"id":3, "TypeCode":"BRAND", "Code":"SHO", "Libelle":"Shimano", "ParentTypeCode":null, "ParentCode":null},
-	{"id":4, "TypeCode":"BRAND", "Code":"SKS", "Libelle":"SKS", "ParentTypeCode":null, "ParentCode":null}
+	{"id":1, "TypeCode":"BRAND", "Code":"TRP", "Libelle":"Tektro Racing Product"},
+	{"id":2, "TypeCode":"BRAND", "Code":"TCS", "Libelle":"Tubus Carrier System"},
+	{"id":3, "TypeCode":"BRAND", "Code":"SHO", "Libelle":"Shimano"},
+	{"id":4, "TypeCode":"BRAND", "Code":"SKS", "Libelle":"SKS"},
+	{"id":5, "TypeCode":"BRAND", "Code":"DECAT", "Libelle":"Decathlon"}
 }
 
 {
-	{"id":1, "TypeCode":"PRODUCT", "Code":"BP45MM28I", "Libelle":"SKS_Bluemels_Primus_45mm_28Inch", "ParentTypeCode":"BRAND", "ParentCode":"SKS", "SerialNumber":""},
-	{"id":2, "TypeCode":"PRODUCT", "Code":"GTLOOP", "Libelle":"SKS_GT_Loop_Rack_Connection_For_Mudguards", "ParentTypeCode":"BRAND", "ParentCode":"SKS", "SerialNumber":""}
-
+	
+	{"id":1, "TypeCode":"COMPTYPE", "Code":"RACK", "Libelle":"Bike Rack"},
+	{"id":2, "TypeCode":"COMPTYPE", "Code":"MUDGUARD", "Libelle":"Mud Guard"},
+	{"id":3, "TypeCode":"COMPTYPE", "Code":"BRAKE", "Libelle":"Brake"},
+	{"id":4, "TypeCode":"COMPTYPE", "Code":"BIKE", "Libelle":"Complete Bike"}
 }
 
 {
-	{"id":1, "TypeCode":"PICTURE", "Code":"TFDBC", "Libelle":"Triban Fork and Disc Brake Calliper", "ParentTypeCode":"PRODUCT", "ParentCode":"", "Path":"https://github.com/ludoaubert/bike-diy/blob/main/triban-rc500-black-front-disc-brake.jpg"}
+	{"id":1, "TypeCode":"PRODUCT", "Code":"BP45MM28I", "Libelle":"SKS Bluemels Primus 45mm 28Inch", "id_brand":4, "id_comp":2, "SerialNumber":""},
+	{"id":2, "TypeCode":"PRODUCT", "Code":"GTLOOP", "Libelle":"SKS GT Loop Rack Connection For Mudguards", "id_brand":4, "id_comp":2, "SerialNumber":""}
+	{"id":3, "TypeCode":"PRODUCT", "Code":"TRI-RC500", "Libelle":"triban rc500 black disc", "id_brand":5, "id_comp":4, "SerialNumber":""}
+}
+
+{
+	{"id":1, "TypeCode":"PICTURE", "Code":"TFDBC", "Libelle":"Triban Fork and Disc Brake Calliper", "id_product":0, "Path":"https://github.com/ludoaubert/bike-diy/blob/main/triban-rc500-black-front-disc-brake.jpg"}
 }
 
 
