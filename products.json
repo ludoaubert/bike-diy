@@ -63,5 +63,21 @@
 		"id_brand":2, 
 		"id_comp":14, 
 		"SerialNumber":"ART. NR. 18017"
+	},
+	{
+		"id":9,  
+		"Code":"TRSAWO", 
+		"Libelle":"Tubus Roundstay Aluminium With Offset", 
+		"id_brand":2, 
+		"id_comp":14, 
+		"SerialNumber":"ART. NR. 32211"
+	},
+	{
+		"id":10,  
+		"Code":"TBSCS", 
+		"Libelle":"Tubus Clamp Set For mounting a rear carrier on seatstays without eyelets.", 
+		"id_brand":2, 
+		"id_comp":14, 
+		"SerialNumber":"ART. NR. 71614"
 	}
 ]
