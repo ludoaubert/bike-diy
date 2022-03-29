@@ -28,6 +28,11 @@
 "id":5,
 "id_product":1,
 "id_picture":2
+},
+{"title":"SKS Bluemels Primus",
+"id":6,
+"id_product":11,
+"id_picture":15
 }],
 "links":[
 {"from":2,"fromField":1,"fromCardinality":"undefined","to":14,"toField":1,"toCardinality":"undefined","Category":""},
