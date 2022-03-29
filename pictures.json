@@ -75,5 +75,12 @@
 		"Libelle":"Tubus Clamp Set For mounting a rear carrier on seatstays without eyelets.", 
 		"id_product":10, 
 		"Path":"csm_71614_24_Schellen-Adapterset_da45a4d4b4.jpg"
+	},
+	{
+		"id":11,  
+		"Code":"TFDBC", 
+		"Libelle":"Triban RC 500 Black Disc", 
+		"id_product":3, 
+		"Path":"triban-rc500-black-disc.jpg"
 	}
 ]
