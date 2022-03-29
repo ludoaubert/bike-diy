@@ -13,5 +13,7 @@
 	{"id":11, "Code":"BRAKE/DISC/MECA", "Libelle":"Mecanical Disc Brake"},
 	{"id":12, "Code":"BRAKE/DISC/MECA/CLP", "Libelle":"Mecanical Disc Brake Caliper"},
 	{"id":13, "Code":"RACK/FRONT", "Libelle":"Front Bike Rack"},
-	{"id":14, "Code":"RACK/BACK", "Libelle":"Back Bike Rack"}
+	{"id":14, "Code":"RACK/BACK", "Libelle":"Back Bike Rack"},
+	{"id":15, "Code":"FORK/RIGID", "Libelle":"Bike Rigid Fork"},
+	{"id":16, "Code":"FORK/SUSPENDED", "Libelle":"Bike Suspended Fork"}
 ]

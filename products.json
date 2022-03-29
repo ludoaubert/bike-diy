@@ -69,5 +69,19 @@
 		"id_brand":2, 
 		"id_comp":14, 
 		"SerialNumber":"ART. NR. 71614"
-	}
+	},
+	{
+		"id":11,  
+		"Libelle":"TRP FF5 Disc Brake Adapter FW - 140-160mm - Flat Mount to Flat Mount", 
+		"id_brand":1, 
+		"id_comp":6, 
+		"SerialNumber":""
+	},
+	{
+		"id":12,  
+		"Libelle":"Radon 26 Inch Rigid Disc Carbon Fork", 
+		"id_brand":10, 
+		"id_comp":15, 
+		"SerialNumber":""
+	}	
 ]
