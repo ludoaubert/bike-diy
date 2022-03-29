@@ -2,7 +2,6 @@
 [
 	{
 		"id":1, 
-		"Code":"BP45MM28I", 
 		"Libelle":"SKS Bluemels Primus 45mm 28Inch", 
 		"id_brand":4, 
 		"id_comp":2, 
@@ -10,7 +9,6 @@
 	},
 	{
 		"id":2,  
-		"Code":"GTLOOP", 
 		"Libelle":"SKS GT Loop Rack Connection For Mudguards", 
 		"id_brand":4, 
 		"id_comp":2, 
@@ -18,7 +16,6 @@
 	},
 	{
 		"id":3,  
-		"Code":"TRI-RC500", 
 		"Libelle":"triban rc500 black disc", 
 		"id_brand":5, 
 		"id_comp":8, 
@@ -26,7 +23,6 @@
 	},
 	{
 		"id":4,  
-		"Code":"SSMMA", 
 		"Libelle":"Shimano SM MA F160PS ISMMAF160PSA", 
 		"id_brand":3, 
 		"id_comp":11, 
@@ -34,7 +30,6 @@
 	},
 	{
 		"id":5,  
-		"Code":"SSLCPM", 
 		"Libelle":"Spyre SLC Post Mount", 
 		"id_brand":1, 
 		"id_comp":12, 
@@ -42,7 +37,6 @@
 	},
 	{
 		"id":6,  
-		"Code":"SSLCFM", 
 		"Libelle":"TRP Spyre SLC Flat Mount", 
 		"id_brand":1, 
 		"id_comp":12, 
@@ -50,7 +44,6 @@
 	},
 	{
 		"id":7,  
-		"Code":"TBAT", 
 		"Libelle":"Tubus Airy Titanium", 
 		"id_brand":2, 
 		"id_comp":14, 
@@ -58,7 +51,6 @@
 	},
 	{
 		"id":8,  
-		"Code":"TLMFTA", 
 		"Libelle":"Tubus Lighting Mount For Tubus Rack Airy Titanium", 
 		"id_brand":2, 
 		"id_comp":14, 
@@ -66,7 +58,6 @@
 	},
 	{
 		"id":9,  
-		"Code":"TRSAWO", 
 		"Libelle":"Tubus Roundstay Aluminium With Offset", 
 		"id_brand":2, 
 		"id_comp":14, 
@@ -74,7 +65,6 @@
 	},
 	{
 		"id":10,  
-		"Code":"TBSCS", 
 		"Libelle":"Tubus Clamp Set For mounting a rear carrier on seatstays without eyelets.", 
 		"id_brand":2, 
 		"id_comp":14, 

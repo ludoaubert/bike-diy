@@ -1,84 +1,72 @@
 [
 	{
-		"id":1,  
-		"Code":"TFDBC", 
+		"id":1,   
 		"Libelle":"Triban Fork and Disc Brake Calliper", 
 		"id_product":3, 
 		"Path":"triban-rc500-black-front-disc-brake.jpg"
 	},
 	{
 		"id":2,  
-		"Code":"SBP4528", 
 		"Libelle":"SKS Bluemels Primus 45mm 28Inch", 
 		"id_product":1, 
 		"Path":"SKS_Bluemels_Primus_45mm_28Inch.jpg"
 	},
 	{
-		"id":3,  
-		"Code":"SGTLOOP", 
+		"id":3,   
 		"Libelle":"SKS GT Loop Rack Connection For Mudguards", 
 		"id_product":2, 
 		"Path":"SKS_GT_Loop_Rack_Connection_For_Mudguards.jpg"
 	},
 	{
-		"id":4,  
-		"Code":"SSMMA", 
+		"id":4,   
 		"Libelle":"Shimano SM MA F160PS ISMMAF160PSA", 
 		"id_product":4, 
 		"Path":"Shimano-SM-MA-F160PS-ISMMAF160PSA.jpg"
 	},
 	{
-		"id":5,  
-		"Code":"SSLCPM", 
+		"id":5,   
 		"Libelle":"Spyre SLC Post Mount", 
 		"id_product":5, 
 		"Path":"Spyre-SLC_Post_Mount_800x800.jpg"
 	},
 	{
-		"id":6,  
-		"Code":"SSLCFM", 
+		"id":6,   
 		"Libelle":"TRP Spyre SLC Flat Mount", 
 		"id_product":6, 
 		"Path":"TRP-Spyre-SLC-FM-1_800x800.jpg"
 	},
 	{
-		"id":7,  
-		"Code":"TBAT", 
+		"id":7,   
 		"Libelle":"Tubus Airy Titanium", 
 		"id_product":7, 
 		"Path":"Tubus_Airy_Titanium.jpg"
 	},
 	{
-		"id":8, 
-		"Code":"TLMFTA", 
+		"id":8,  
 		"Libelle":"Tubus Lighting Mount For Tubus Rack Airy Titanium", 
 		"id_product":8, 
 		"Path":"Tubus_Lighting_Mount_For_Tubus_Rack_Airy_Titanium.jpg"
 	},
 	{
-		"id":9, 
-		"Code":"TRSAWO", 
+		"id":9,  
 		"Libelle":"Tubus Roundstay Aluminium With Offset", 
 		"id_product":9, 
 		"Path":"csm_Streben_mit-Versatz_d7285e5b07.jpg"
 	},
 	{
-		"id":10, 
-		"Code":"TBSCS", 
+		"id":10,  
 		"Libelle":"Tubus Clamp Set For mounting a rear carrier on seatstays without eyelets.", 
 		"id_product":10, 
 		"Path":"csm_71614_24_Schellen-Adapterset_montiert_71ffcc4773.jpg"
 	},
 	{
-		"id":10, 
-		"Code":"TBSCS", 
+		"id":10,  
 		"Libelle":"Tubus Clamp Set For mounting a rear carrier on seatstays without eyelets.", 
 		"id_product":10, 
 		"Path":"csm_71614_24_Schellen-Adapterset_da45a4d4b4.jpg"
 	},
 	{
-		"id":11,  
-		"Code":"TFDBC", 
+		"id":11,   
 		"Libelle":"Triban RC 500 Black Disc", 
 		"id_product":3, 
 		"Path":"triban-rc500-black-disc.jpg"

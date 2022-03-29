@@ -1,11 +1,11 @@
 [
-	{"id":1, "Code":"TRP", "Libelle":"Tektro Racing Product"},
-	{"id":2, "Code":"TCS", "Libelle":"Tubus Carrier Systems Gmbh"},
-	{"id":3, "Code":"SHO", "Libelle":"Shimano"},
-	{"id":4, "Code":"SKS", "Libelle":"SKS"},
-	{"id":5, "Code":"DECAT", "Libelle":"Decathlon"},
-	{"id":6, "Code":"SCHW", "Libelle":"Schwalbe"},
-	{"id":7, "Code":"MBCN", "Libelle":"Motobecane"},
-	{"id":8, "Code":"PGT", "Libelle":"Peugeot"},
-	{"id":9, "Code":"ORTLB", "Libelle":"Ortlieb"}
+	{"id":1, "Libelle":"Tektro Racing Product"},
+	{"id":2, "Libelle":"Tubus Carrier Systems Gmbh"},
+	{"id":3, "Libelle":"Shimano"},
+	{"id":4, "Libelle":"SKS"},
+	{"id":5, "Libelle":"Decathlon"},
+	{"id":6, "Libelle":"Schwalbe"},
+	{"id":7, "Libelle":"Motobecane"},
+	{"id":8, "Libelle":"Peugeot"},
+	{"id":9, "Libelle":"Ortlieb"}
 ]
