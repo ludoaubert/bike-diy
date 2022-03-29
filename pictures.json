@@ -4,56 +4,56 @@
 		"Code":"TFDBC", 
 		"Libelle":"Triban Fork and Disc Brake Calliper", 
 		"id_product":3, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/triban-rc500-black-front-disc-brake.jpg"
+		"Path":"triban-rc500-black-front-disc-brake.jpg"
 	},
 	{
 		"id":2,  
 		"Code":"SBP4528", 
 		"Libelle":"SKS Bluemels Primus 45mm 28Inch", 
 		"id_product":1, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/SKS_Bluemels_Primus_45mm_28Inch.jpg"
+		"Path":"SKS_Bluemels_Primus_45mm_28Inch.jpg"
 	},
 	{
 		"id":3,  
 		"Code":"SGTLOOP", 
 		"Libelle":"SKS GT Loop Rack Connection For Mudguards", 
 		"id_product":2, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/SKS_GT_Loop_Rack_Connection_For_Mudguards.jpg"
+		"Path":"SKS_GT_Loop_Rack_Connection_For_Mudguards.jpg"
 	},
 	{
 		"id":4,  
 		"Code":"SSMMA", 
 		"Libelle":"Shimano SM MA F160PS ISMMAF160PSA", 
 		"id_product":4, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/Shimano-SM-MA-F160PS-ISMMAF160PSA.jpg"
+		"Path":"Shimano-SM-MA-F160PS-ISMMAF160PSA.jpg"
 	},
 	{
 		"id":5,  
 		"Code":"SSLCPM", 
 		"Libelle":"Spyre SLC Post Mount", 
 		"id_product":5, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/Spyre-SLC_Post_Mount_800x800.jpg"
+		"Path":"Spyre-SLC_Post_Mount_800x800.jpg"
 	},
 	{
 		"id":6,  
 		"Code":"SSLCFM", 
 		"Libelle":"TRP Spyre SLC Flat Mount", 
 		"id_product":6, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/TRP-Spyre-SLC-FM-1_800x800.jpg"
+		"Path":"TRP-Spyre-SLC-FM-1_800x800.jpg"
 	},
 	{
 		"id":7,  
 		"Code":"TBAT", 
 		"Libelle":"Tubus Airy Titanium", 
 		"id_product":7, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/Tubus_Airy_Titanium.jpg"
+		"Path":"Tubus_Airy_Titanium.jpg"
 	},
 	{
 		"id":8, 
 		"Code":"TLMFTA", 
 		"Libelle":"Tubus Lighting Mount For Tubus Rack Airy Titanium", 
 		"id_product":8, 
-		"Path":"https://github.com/ludoaubert/bike-diy/blob/main/Tubus_Lighting_Mount_For_Tubus_Rack_Airy_Titanium.jpg"
+		"Path":"Tubus_Lighting_Mount_For_Tubus_Rack_Airy_Titanium.jpg"
 	}
 
 ]
