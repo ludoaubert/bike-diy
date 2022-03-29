@@ -6,7 +6,7 @@
 		"Libelle":"SKS Bluemels Primus 45mm 28Inch", 
 		"id_brand":4, 
 		"id_comp":2, 
-		"SerialNumber":""
+		"SerialNumber":"11262"
 	},
 	{
 		"id":2,  
@@ -54,7 +54,7 @@
 		"Libelle":"Tubus Airy Titanium", 
 		"id_brand":2, 
 		"id_comp":14, 
-		"SerialNumber":""
+		"SerialNumber":"ART. 33000"
 	},
 	{
 		"id":8,  
@@ -62,6 +62,6 @@
 		"Libelle":"Tubus Lighting Mount For Tubus Rack Airy Titanium", 
 		"id_brand":2, 
 		"id_comp":14, 
-		"SerialNumber":""
+		"SerialNumber":"ART. NR. 18017"
 	}
 ]
