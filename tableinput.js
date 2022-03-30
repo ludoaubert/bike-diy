@@ -32,6 +32,7 @@ var colorBoxCombo = document.getElementById("color boxes");
 var colorFieldCombo = document.getElementById("color fields");
 var colorCombo = document.getElementById("color");
 var colorsCombo = document.getElementById("colors");
+var imagesAutocompleteCombo = document.getElementById("pictures");
 
 const colors=['yellow','pink','hotpink','palegreen','red','orange','skyblue','olive','grey','darkviolet'];
 
@@ -154,6 +155,16 @@ function download2(filename) {
 	document.body.appendChild(element);
 	element.click();
 	document.body.removeChild(element);
+}
+
+
+function load(pictures) {
+	mypictures = JSON.parse(pictures);
+alert("scanning pictures");
+	for (const {id, Libelle, id_product, Path} of mypictures)
+	{
+		imagesAutocompleteCombo.add(new Option(Path,Path));
+	}
 }
 
 
