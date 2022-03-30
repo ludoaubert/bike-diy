@@ -165,7 +165,9 @@ function load(pictures) {
 alert("scanning pictures");
 	for (const {id, Libelle, id_product, Path} of mypictures)
 	{
-		imagesAutocompleteCombo.datalist.appendChild(new Option(Path,Path));
+		var option = document.createElement('option');
+		option.value = Path;
+		imagesAutocompleteCombo.appendChild(option);
 	}
 }
 
