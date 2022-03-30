@@ -1,3 +1,5 @@
+var mypictures;
+
 // FRAME_MARGIN is duplicated in diagload.js
 const FRAME_MARGIN = 20;
 
