@@ -18,8 +18,6 @@ var fieldCombo = document.getElementById("fields");
 var valueCombo = document.getElementById("values");
 var boxCommentTextArea = document.getElementById("box comment");	
 var fieldCommentTextArea = document.getElementById("field comment");
-var isPrimaryKeyCheckBox = document.getElementById("PK");
-var isForeignKeyCheckBox = document.getElementById("FK");
 var linkCombo = document.getElementById("links");
 var newBoxEditField = document.getElementById("new box");
 var newFieldEditField = document.getElementById("new field");
@@ -248,7 +246,7 @@ function dropBox()
 	const box = boxCombo.value;
 	let index = myBoxes.indexOf(box);
 	myBoxes.splice(index,1);
-	for (const {name, isPrimaryKey, isForeignKey} in box2fields[box])
+	for (const {name} in box2fields[box])
 	{
 		const field = name;
 		delete field2values[`${box}.${field}`];
@@ -289,7 +287,7 @@ function updateBox()
 	box2fields[newBoxEditField.value] = box2fields[box];
 	delete box2fields[box];
 	
-	for (const {name, isPrimaryKey, isForeignKey} of box2fields[newBoxEditField.value])
+	for (const {name} of box2fields[newBoxEditField.value])
 	{
 		const field = name;
 		//alert(field);
@@ -358,14 +356,6 @@ function updateFieldAttributes()
 	{
 		const box = boxCombo.value;
 		const fields = box2fields[box];
-		
-		isPrimaryKeyCheckBox.checked = false;
-		isForeignKeyCheckBox.checked = false ;
-		
-		const {isPrimaryKey, isForeignKey} = fields.find( f => f.name == fieldCombo.value );
-
-		isPrimaryKeyCheckBox.checked = isPrimaryKey;
-		isForeignKeyCheckBox.checked = isForeignKey;
 	}
 	
 	selectField();
@@ -423,7 +413,7 @@ function selectField()
 function addNewFieldToBox()
 {
 	const box = boxCombo.value;
-	box2fields[box].push({"name":newFieldEditField.value,"isPrimaryKey":isPrimaryKeyCheckBox.checked,"isForeignKey":isForeignKeyCheckBox.checked});
+	box2fields[box].push({"name":newFieldEditField.value});
 	const field = newFieldEditField.value;
 	fieldCombo.add(new Option(field,field));
 	sortSelect(fieldCombo);
@@ -442,9 +432,7 @@ function updateField()
 	const box = boxCombo.value;
 	const field = fieldCombo.value;
 	Object.assign(box2fields[box].find( f => f.name == field ), {
-		"name":newFieldEditField.value.length!=0 ? newFieldEditField.value : field,
-		"isPrimaryKey":isPrimaryKeyCheckBox.checked,
-		"isForeignKey":isForeignKeyCheckBox.checked
+		"name":newFieldEditField.value.length!=0 ? newFieldEditField.value : field
 	});
 
 	fieldCombo.remove(fieldCombo.selectedIndex);
@@ -766,23 +754,6 @@ function refreshJsonFromEditData()
 
 
 
-function compute_key_distrib(fields)
-{
-	var key_distrib = {"PK":0,"FK":0,"PKFK":0};
-	
-	for (let {name,isPrimaryKey,isForeignKey} of fields)
-	{
-		if (isPrimaryKey && isForeignKey)
-			key_distrib["PKFK"]++;
-		else if (isPrimaryKey)
-			key_distrib["PK"]++;
-		else if (isForeignKey)
-			key_distrib["FK"]++;
-	}
-
-	return key_distrib;
-}
-
 const MONOSPACE_FONT_PIXEL_WIDTH=7;
 const CHAR_RECT_HEIGHT=16;	// in reality 14,8 + 1 + 1 (top and bottom padding) = 16,8
 const RECTANGLE_BOTTOM_CAP=200;
@@ -793,7 +764,6 @@ function compute_box_rectangles(boxes)
 	for (const {title,id,fields} of boxes)
 	{
 		let fields = box2fields[title];
-		var key_distrib = compute_key_distrib(fields) ;
 
 		var nr_col = 0 ;
 		var width = 2*4 + title.length * MONOSPACE_FONT_PIXEL_WIDTH ;
@@ -804,23 +774,7 @@ function compute_box_rectangles(boxes)
 			nr_col++ ;
 			const column_name = field.name;
 
-			var column_width=0;
-
-			if (key_distrib["PKFK"])
-			{
-		//at least one 'PK FK' is present
-				column_width = ("PK FK " + column_name).length ;
-			}
-			else if (key_distrib["PK"] || key_distrib["FK"])
-			{
-		//no 'PK FK' is present, but at least one PK|FK is present.
-				column_width = ("PK " + column_name).length ;
-			}
-			else
-			{
-		//no 'PK FK' is present. no PK|FK either.
-				column_width = column_name.length ;
-			}
+			var column_width= column_name.length ;
 
 			max_width = Math.max(column_width * MONOSPACE_FONT_PIXEL_WIDTH, max_width);
 		}
@@ -946,8 +900,6 @@ function enable_disable()
 	const fieldComment = fieldCommentTextArea.value;
 	var fieldIndex = -1;
 	var name = newFieldEditField.value;
-	var isPrimaryKey = isPrimaryKeyCheckBox.checked;
-	var isForeignKey = isForeignKeyCheckBox.checked;
 /*
 	if (box in box2fields)
 	{
@@ -974,7 +926,6 @@ function enable_disable()
 	document.getElementById("update field").disabled = fieldCombo.selectedIndex == -1 ||
 														//newFieldEditField.value.length == 0 ||
 														(newFieldEditField.value.length != 0 && newFieldEditField.value == fieldCombo.value) ||
-														(isPrimaryKey == isPrimaryKeyCheckBox.checked && isForeignKey == isForeignKeyCheckBox.checked) ||
 														box2fields[box].findIndex(f => f.name == newFieldEditField.value) != -1;	
 
 	
