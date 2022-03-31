@@ -5,17 +5,14 @@ const FRAME_MARGIN = 20;
 
 var myBoxes = [];
 var box2fields = {};
-var field2values = {};
 var box2comment = {};
 var field2comment = {};
-var field2color = {};
 
 
 var input = document.getElementById("myFile");
 var editTitle = document.getElementById("title");
 var boxCombo = document.getElementById("boxes");
 var fieldCombo = document.getElementById("fields");
-var valueCombo = document.getElementById("values");
 var boxCommentTextArea = document.getElementById("box comment");	
 var fieldCommentTextArea = document.getElementById("field comment");
 var linkCombo = document.getElementById("links");
@@ -27,16 +24,8 @@ var fromCardinalityCombo = document.getElementById("from cardinality");
 var toBoxCombo = document.getElementById("to boxes");
 var toFieldCombo = document.getElementById("to fields");
 var toCardinalityCombo = document.getElementById("to cardinality");
-var newValueEditField = document.getElementById("new value");
-var colorBoxCombo = document.getElementById("color boxes");
-var colorFieldCombo = document.getElementById("color fields");
-var colorCombo = document.getElementById("color");
-var colorsCombo = document.getElementById("colors");
 var imagesAutocompleteCombo = document.getElementById("pictures");
 
-const colors=['yellow','pink','hotpink','palegreen','red','orange','skyblue','olive','grey','darkviolet'];
-
-colors.forEach(color => colorCombo.add(new Option(color, color)));
 
 input.addEventListener("change", function () {
   if (this.files && this.files[0]) {
@@ -224,7 +213,6 @@ function selectCascadeBox()
 	selectBox(boxCombo, fieldCombo);
 	updateFieldAttributes();
 	copyOptions(boxCombo, colorBoxCombo);
-	selectBox(colorBoxCombo, colorFieldCombo);
 	selectField();	
 }
 
@@ -249,7 +237,6 @@ function dropBox()
 	for (const {name} in box2fields[box])
 	{
 		const field = name;
-		delete field2values[`${box}.${field}`];
 		delete field2comment[`${box}.${field}`];
 	}
 	delete box2fields[box];
@@ -291,13 +278,6 @@ function updateBox()
 	{
 		const field = name;
 		//alert(field);
-		if (`${box}.${field}` in field2values)
-		{
-			//alert("Cascade updating values: " + JSON.stringify(field2values[`${box}.${field}`]));
-			field2values[`${newBoxEditField.value}.${field}`] = field2values[`${box}.${field}`];
-			delete field2values[`${box}.${field}`];
-		}
-	
 
 		if (`${box}.${field}` in field2comment)
 		{
@@ -385,16 +365,6 @@ function selectField()
 		removeOptions(valueCombo);
 		var box = boxCombo.value;
 		var field = fieldCombo.value;
-		var values = [];
-		if (`${box}.${field}` in field2values)
-			values = field2values[`${box}.${field}`];
-
-		for (let value in values)
-		{
-			valueCombo.add(new Option(value,value));
-		}
-		
-		sortSelect(valueCombo);
 		
 		boxCommentTextArea.value = "";
 		if (box in box2comment)
@@ -421,7 +391,6 @@ function addNewFieldToBox()
 	newFieldEditField.value = '';
 	selectBox(fromBoxCombo, fromFieldCombo);
 	selectBox(toBoxCombo, toFieldCombo);
-	selectBox(colorBoxCombo, colorFieldCombo);
 	updateFieldAttributes();
 	selectField();
 }
@@ -438,12 +407,6 @@ function updateField()
 	fieldCombo.remove(fieldCombo.selectedIndex);
 	
 	//alert(JSON.stringify(box2fields[box]));
-	if (`${box}.${field}` in field2values)
-	{
-		//alert("Cascade dropping values: " + JSON.stringify(field2values[`${box}.${field}`]));
-		field2values[`${box}.${newFieldEditField.value}`] = field2values[`${box}.${field}`];
-		delete field2values[`${box}.${field}`];
-	}
 	if (`${box}.${field}` in field2comment)
 	{
 		//alert("Cascade dropping comment: " + field2comment[`${box}.${field}`]);
@@ -485,7 +448,6 @@ function updateField()
 	selectBox(fromBoxCombo, fromFieldCombo);
 	selectBox(toBoxCombo, toFieldCombo);
 	selectBox(boxCombo,fieldCombo);
-	selectBox(colorBoxCombo, colorFieldCombo);
 	updateFieldAttributes();
 	selectField();
 }
@@ -501,11 +463,6 @@ function dropFieldFromBox()
 	fieldCombo.remove(fieldCombo.selectedIndex);
 	updateFieldAttributes();
 	//alert(JSON.stringify(box2fields[box]));
-	if (`${box}.${field}` in field2values)
-	{
-		//alert("Cascade dropping values: " + JSON.stringify(field2values[`${box}.${field}`]));
-		delete field2values[`${box}.${field}`];
-	}
 	if (`${box}.${field}` in field2comment)
 	{
 		//alert("Cascade dropping comment: " + field2comment[`${box}.${field}`]);
@@ -530,49 +487,6 @@ function dropFieldFromBox()
 	}		
 }
 
-function editValueFromField()
-{
-	//alert("editValueFromField");
-	newValueEditField.value = valueCombo.value;
-}
-
-function addNewValueToField()
-{
-	//alert("addNewValueToField");
-	const box = boxCombo.value;
-	const field = fieldCombo.value;
-
-	if (!(`${box}.${field}` in field2values))
-		field2values[`${box}.${field}`] = [];
-	field2values[`${box}.${field}`].push(newValueEditField.value);
-	field2values[`${box}.${field}`].sort();
-	const text = newValueEditField.value;
-	valueCombo.add(new Option(text,text));
-	sortSelect(valueCombo);
-	valueCombo.value = newValueEditField.value;
-	newValueEditField.value = '';
-	//alert(JSON.stringify(field2values));
-}
-
-function updateValue()
-{
-	//alert("updateValue");
-	dropValueFromField();
-	addNewValueToField();
-}
-
-function dropValueFromField()
-{
-	//alert("dropValueFromField");
-	const box = boxCombo.value;
-	const field = fieldCombo.value;
-	const value = valueCombo.value;
-	valueCombo.remove(valueCombo.selectedIndex);
-	let values = field2values[`${box}.${field}`];
-	const index = values.indexOf(value);
-	values.splice(index,1);
-	selectField();
-}
 
 function selectLink()
 {
@@ -638,35 +552,6 @@ function updateFieldComment()
 	field2comment[`${box}.${field}`] = fieldCommentTextArea.value;
 }
 
-function addNewColor()
-{
-	const box = colorBoxCombo.value;
-	const field = colorFieldCombo.value;
-	const color = colorCombo.value;
-	field2color[`${box}.${field}`] = color;
-	
-	const text = `${box}.${field}=>${color}`;
-	colorsCombo.add(new Option(text, text));
-	sortSelect(colorsCombo);
-	colorsCombo.value = text;
-}
-
-function updateColor()
-{
-	const box = colorBoxCombo.value;
-	const field = colorFieldCombo.value;
-	const color = colorCombo.value;
-	field2color[`${box}.${field}`] = color;
-	
-	const text = `${box}.${field}=>${color}`;
-	colorsCombo.options[colorsCombo.selectedIndex].innerHTML = text;
-}
-
-function dropColor()
-{
-	if (colorsCombo.selectedIndex != -1)
-		colorsCombo.remove(colorsCombo.selectedIndex);
-}
 
 function refreshJsonFromEditData()
 {	
@@ -675,16 +560,6 @@ function refreshJsonFromEditData()
 	for (let [id, box] of myBoxes.entries())
 	{
 		boxes.push({"title":box, "id":id, "fields":box2fields[box]})
-	}
-	
-	let values = [];
-	for (let boxfield in field2values)
-	{
-		[box, field] = boxfield.split(".");
-		for (let value of field2values[boxfield])
-		{
-			values.push({box, field, value});
-		}
 	}
 	
 	let boxComments = [];
@@ -700,15 +575,6 @@ function refreshJsonFromEditData()
 		comment = field2comment[boxfield];
 		[box, field] = boxfield.split(".");
 		fieldComments.push({box, field, comment});
-	}
-	
-	let fieldColors = [];
-	for (let boxfield in field2color)
-	{
-		const color = field2color[boxfield];
-		[box, field] = boxfield.split(".");
-		let index = myBoxes.indexOf(box);
-		fieldColors.push({index, box, field, color});
 	}
 
 	let links = [];
@@ -748,7 +614,7 @@ function refreshJsonFromEditData()
 	const rectangles = compute_box_rectangles(boxes);
 	const documentTitle = editTitle.value;
 
-	const json = {documentTitle, boxes, values, boxComments, fieldComments, links, fieldColors, rectangles};
+	const json = {documentTitle, boxes, boxComments, fieldComments, links, rectangles};
 	return json;
 }
 
@@ -799,7 +665,6 @@ function refreshEditDataFromJson(Json)
 	removeOptions(toBoxCombo);
 	removeOptions(linkCombo);
 	removeOptions(colorBoxCombo);
-	removeOptions(colorFieldCombo);
 	removeOptions(colorsCombo);
 	
 	myBoxes = [];
@@ -850,14 +715,6 @@ function refreshEditDataFromJson(Json)
 	for (const box of boxes)
 		box2fields[box.title] = box.fields;
 	
-	field2values = {};
-	for (const {box,field,value} of values)
-	{
-		if (!(`${box}.${field}` in field2values))
-			field2values[`${box}.${field}`] = [];
-		field2values[`${box}.${field}`].push(value);
-	}
-	
 	box2comment = {};
 	for (let {box,comment} of boxComments)
 	{
@@ -870,24 +727,10 @@ function refreshEditDataFromJson(Json)
 		field2comment[`${box}.${field}`] = comment;
 	}
 	
-	field2color = {};
-	for (let {index,box,field,color} of fieldColors)
-	{
-		field2color[`${box}.${field}`] = color;
-	}
-	
-	for (const {index,box,field,color} of fieldColors)
-	{
-		let text = `${box}.${field}=>${color}`;
-		colorsCombo.add(new Option(text, text));
-    }
-	sortSelect(colorsCombo);
-	
 	selectBox(boxCombo, fieldCombo);
 	updateFieldAttributes();
 	selectBox(fromBoxCombo, fromFieldCombo);
 	selectBox(toBoxCombo, toFieldCombo);
-	selectBox(colorBoxCombo, colorFieldCombo);
 	selectField();
 }
 
@@ -927,15 +770,6 @@ function enable_disable()
 														//newFieldEditField.value.length == 0 ||
 														(newFieldEditField.value.length != 0 && newFieldEditField.value == fieldCombo.value) ||
 														box2fields[box].findIndex(f => f.name == newFieldEditField.value) != -1;	
-
-	
-	document.getElementById("edit value").disabled = valueCombo.selectedIndex == -1;
-
-	const isExistingValue = `${box}.${field}` in field2values && field2values[`${box}.${field}`].indexOf(newValueEditField.value) != -1;
-	document.getElementById("add value").disabled = newValueEditField.value.length == 0 || isExistingValue;
-	document.getElementById("drop value").disabled = valueCombo.selectedIndex == -1 ||
-													newValueEditField.value.length != 0;
-	document.getElementById("update value").disabled = (valueCombo.selectedIndex == -1 || newValueEditField.value.length == 0) || isExistingValue;
 	
 	document.getElementById("drop link").disabled = linkCombo.selectedIndex == -1;
 

@@ -116,19 +116,6 @@
 	<button type="button" id="update field comment" onclick="updateFieldComment()">Update Field Comment</button>
 	<button type="button" id="drop field comment" onclick="dropFieldComment()">Drop Field Comment</button>
 </fieldset>
-	
-<fieldset>
-	<legend>Field Values</legend>
-
-	Values: <select id="values" onchange="updateValueAttributes()"></select>
-
-	<input type="text" id="new value">
-	<button type="button" id="edit value" title="load combo value into edit field" onclick="editValueFromField()">Edit Value From Field</button>
-	<button type="button" id="add value" onclick="addNewValueToField()">Add New Value To Field</button>
-	<button type="button" id="drop value" onclick="dropValueFromField()">Drop Value From Field</button>
-	<button type="button" id="update value" onclick="updateValue()">Update Value</button>
-</fieldset>
-
 
 <fieldset>
 	<legend>Box Links</legend>
@@ -143,19 +130,6 @@
 	To Cardinality: <select id="to cardinality" class="cardinality_select"></select>
 	<button id="add link" type="button" onclick="addNewLink()">Add New Link</button>
 	<button id="update link" type="button" onclick="updateLink()">Update Link</button>
-</fieldset>
-
-<fieldset>
-	<legend>Field Colors</legend>
-	Colors: <select id="colors" onchange="selectColor()" class="bigselect"></select>
-	<button id="drop color" type="button" onclick="dropColor()">Drop Color</button>
-	<br>
-	Box: <select id="color boxes" onchange="selectBox(colorBoxCombo, colorFieldCombo)"></select>
-	Field: <select id="color fields"></select>
-	Color: <select id="color"></select>
-
-	<button id="add color" type="button" onclick="addNewColor()">Add New Color</button>
-	<button id="update color" type="button" onclick="updateColor()">Update Color</button>	
 </fieldset>
 
 	<script type="text/javascript" src="pretty.js"></script>
