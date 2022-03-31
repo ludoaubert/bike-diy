@@ -19,11 +19,7 @@ var linkCombo = document.getElementById("links");
 var newBoxEditField = document.getElementById("new box");
 var newFieldEditField = document.getElementById("new field");
 var fromBoxCombo = document.getElementById("from boxes");
-var fromFieldCombo = document.getElementById("from fields");
-var fromCardinalityCombo = document.getElementById("from cardinality");
 var toBoxCombo = document.getElementById("to boxes");
-var toFieldCombo = document.getElementById("to fields");
-var toCardinalityCombo = document.getElementById("to cardinality");
 var imagesAutocompleteCombo = document.getElementById("pictures");
 
 
@@ -159,13 +155,6 @@ alert("scanning pictures");
 }
 
 
-function init(e) {
-	for (let cardinality of ["NULL","0","1","N","0,1","0,N","1,N"])
-	{
-		fromCardinalityCombo.add(new Option(cardinality,cardinality));
-		toCardinalityCombo.add(new Option(cardinality,cardinality));
-	}
-}
 
 document.addEventListener('DOMContentLoaded', init, false);
 
@@ -494,12 +483,8 @@ function selectLink()
 	const match = myRegexp.exec(linkCombo.value);
 	fromBoxCombo.value = match[1];
 	selectBox(fromBoxCombo, fromFieldCombo);
-	fromFieldCombo.value = match[2];
-	fromCardinalityCombo.value = match[3];
 	toBoxCombo.value = match[4];
 	selectBox(toBoxCombo, toFieldCombo);
-	toFieldCombo.value = match[5];
-	toCardinalityCombo.value = match[6];
 }
 
 function updateLink()
@@ -510,7 +495,7 @@ function updateLink()
 
 function addNewLink()
 {
-	const text = `${fromBoxCombo.value}.${fromFieldCombo.value}.${fromCardinalityCombo.value} \-> ${toBoxCombo.value}.${toFieldCombo.value}.${toCardinalityCombo.value}`;					
+	const text = `${fromBoxCombo.value}.. \-> ${toBoxCombo.value}..`;					
 	linkCombo.add(new Option(text, text));
 	sortSelect(linkCombo);
 	linkCombo.value = text;
