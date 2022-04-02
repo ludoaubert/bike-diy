@@ -4,7 +4,7 @@ var mypictures;
 const FRAME_MARGIN = 20;
 
 var myBoxes = [];
-var box2fields = {};
+var box2idimage = {};
 var box2comment = {};
 var field2comment = {};
 
@@ -17,7 +17,6 @@ var boxCommentTextArea = document.getElementById("box comment");
 var fieldCommentTextArea = document.getElementById("field comment");
 var linkCombo = document.getElementById("links");
 var newBoxEditField = document.getElementById("new box");
-var newFieldEditField = document.getElementById("new field");
 var fromBoxCombo = document.getElementById("from boxes");
 var toBoxCombo = document.getElementById("to boxes");
 var imagesAutocompleteCombo = document.getElementById("pictures");
@@ -212,7 +211,7 @@ function addNewBox()
 	sortSelect(boxCombo);
 	boxCombo.value = newBoxEditField.value;
 	myBoxes.push(newBoxEditField.value);
-	box2fields[newBoxEditField.value] = [];
+	box2idimage[newBoxEditField.value] = [];
 	newBoxEditField.value='';
 	boxCommentTextArea.value='';
 	selectCascadeBox();
@@ -223,17 +222,17 @@ function dropBox()
 	const box = boxCombo.value;
 	let index = myBoxes.indexOf(box);
 	myBoxes.splice(index,1);
-	for (const {name} in box2fields[box])
+	for (const {name} in box2idimage[box])
 	{
 		const field = name;
 		delete field2comment[`${box}.${field}`];
 	}
-	delete box2fields[box];
+	delete box2idimage[box];
 	boxCombo.remove(boxCombo.selectedIndex);
 	
 	selectCascadeBox();
 	
-	alert(JSON.stringify(box2fields));
+	alert(JSON.stringify(box2idimage));
 	
 	for (let i=linkCombo.options.length-1; i >= 0; i--) 
 	{
@@ -255,15 +254,15 @@ function updateBox()
 	
 	boxCombo.remove(boxCombo.selectedIndex);
 	
-	//alert(JSON.stringify(box2fields[box]));
+	//alert(JSON.stringify(box2idimage[box]));
 	
 	let index = myBoxes.indexOf(box);
 	myBoxes[index] = newBoxEditField.value;
 		
-	box2fields[newBoxEditField.value] = box2fields[box];
-	delete box2fields[box];
+	box2idimage[newBoxEditField.value] = box2idimage[box];
+	delete box2idimage[box];
 	
-	for (const {name} of box2fields[newBoxEditField.value])
+	for (const {name} of box2idimage[newBoxEditField.value])
 	{
 		const field = name;
 		//alert(field);
@@ -315,7 +314,7 @@ function updateBox()
 	copyOptions(boxCombo, fromBoxCombo);
 	copyOptions(boxCombo, toBoxCombo);	
 	
-	//alert(JSON.stringify(box2fields));
+	//alert(JSON.stringify(box2idimage));
 }
 
 
@@ -329,7 +328,7 @@ function updateFieldAttributes(value)
 	if (fieldCombo.selectedIndex != -1)
 	{
 		const box = boxCombo.value;
-		const fields = box2fields[box];
+		const fields = box2idimage[box];
 	}
 	
 	selectField();
@@ -341,7 +340,7 @@ function selectBox(boxCombo, fieldCombo)
 	{
 		removeOptions(fieldCombo);
 		var box = boxCombo.value;
-		var fields = box2fields[box];
+		var fields = box2idimage[box];
 
 		for (let {name} of fields)
 		{
@@ -372,113 +371,6 @@ function selectField()
 			fieldCommentTextArea.value = field2comment[`${box}.${field}`];
 		}
 	}
-}
-
-function addNewFieldToBox()
-{
-	const box = boxCombo.value;
-	box2fields[box].push({"name":newFieldEditField.value});
-	const field = newFieldEditField.value;
-	fieldCombo.add(new Option(field,field));
-	sortSelect(fieldCombo);
-	fieldCombo.value = newFieldEditField.value;
-	newFieldEditField.value = '';
-	selectBox(fromBoxCombo, fromFieldCombo);
-	selectBox(toBoxCombo, toFieldCombo);
-	updateFieldAttributes();
-	selectField();
-}
-
-function updateField()
-{
-	//alert("updateField");
-	const box = boxCombo.value;
-	const field = fieldCombo.value;
-	Object.assign(box2fields[box].find( f => f.name == field ), {
-		"name":newFieldEditField.value.length!=0 ? newFieldEditField.value : field
-	});
-
-	fieldCombo.remove(fieldCombo.selectedIndex);
-	
-	//alert(JSON.stringify(box2fields[box]));
-	if (`${box}.${field}` in field2comment)
-	{
-		//alert("Cascade dropping comment: " + field2comment[`${box}.${field}`]);
-		field2comment[`${box}.${newFieldEditField.value}`] = field2comment[`${box}.${field}`];
-		delete field2comment[`${box}.${field}`];
-	}
-	selectField();
-	
-	for (let option of linkCombo.options)
-	{
-	//Split a string with multiple parameters: Pass in a regexp as the parameter.
-		let [fromBoxTitle, fromFieldName, fromCardinality, toBoxTitle, toFieldName, toCardinality] = option.text.split(/ -> |\./);
-		let replace = false;
-		if (fromBoxTitle == box && fromFieldName == field)
-		{
-			replace = true;
-			fromFieldName = newFieldEditField.value;
-		}
-		if (toBoxTitle == box && toFieldName == field)
-		{
-			replace = true;
-			toFieldName = newFieldEditField.value;
-		}
-		if (replace)
-		{
-			//alert ("Cascade dropping link: " + option.text);
-			option.text = `${fromBoxTitle}.${fromFieldName}.${fromCardinality} -> ${toBoxTitle}.${toFieldName}.${toCardinality}`;
-		}
-	}	
-
-	sortSelect(linkCombo);	
-
-	const text = newFieldEditField.value;
-	fieldCombo.add(new Option(text,text));
-	sortSelect(fieldCombo);
-	fieldCombo.value = newFieldEditField.value;
-	newFieldEditField.value = '';
-	//alert(JSON.stringify(box2fields));
-	selectBox(fromBoxCombo, fromFieldCombo);
-	selectBox(toBoxCombo, toFieldCombo);
-	selectBox(boxCombo,fieldCombo);
-	updateFieldAttributes();
-	selectField();
-}
-
-
-function dropFieldFromBox()
-{
-	//alert("dropFieldFromBox");
-	var box = boxCombo.value;
-	var field = fieldCombo.value;
-	let index = box2fields[box].findIndex(f => f.name == field);
-	box2fields[box].splice(index,1);
-	fieldCombo.remove(fieldCombo.selectedIndex);
-	updateFieldAttributes();
-	//alert(JSON.stringify(box2fields[box]));
-	if (`${box}.${field}` in field2comment)
-	{
-		//alert("Cascade dropping comment: " + field2comment[`${box}.${field}`]);
-		delete field2comment[`${box}.${field}`];
-	}
-	if (`${box}.${field}` in field2color)
-	{
-		//alert("Cascade dropping comment: " + field2color[`${box}.${field}`]);
-		delete field2color[`${box}.${field}`];
-	}	
-	selectField();
-	
-	for (let i=linkCombo.options.length-1; i >= 0; i--) 
-	{
-	//Split a string with multiple parameters: Pass in a regexp as the parameter.
-		let [fromBoxTitle, fromFieldName, fromCardinality, toBoxTitle, toFieldName, toCardinality] = linkCombo.options[i].text.split(/ -> |\./);
-		if ((fromBoxTitle == box && fromFieldName == field) || (toBoxTitle == box && toFieldName == field))
-		{
-			//alert ("Cascade dropping link: " + linkCombo.options[i].text);
-			linkCombo.remove(i);
-		}
-	}		
 }
 
 
@@ -549,7 +441,7 @@ function refreshJsonFromEditData()
 
 	for (let [id, box] of myBoxes.entries())
 	{
-		boxes.push({"title":box, "id":id, "fields":box2fields[box]})
+		boxes.push({"title":box, "id":id, "fields":box2idimage[box]})
 	}
 	
 	let boxComments = [];
@@ -619,7 +511,7 @@ function compute_box_rectangles(boxes)
 	var rectangles = []
 	for (const {title,id,fields} of boxes)
 	{
-		let fields = box2fields[title];
+		let fields = box2idimage[title];
 
 		var nr_col = 0 ;
 		var width = 2*4 + title.length * MONOSPACE_FONT_PIXEL_WIDTH ;
@@ -701,10 +593,6 @@ function refreshEditDataFromJson(Json)
 	copyOptions(boxCombo, toBoxCombo);
 	copyOptions(boxCombo, colorBoxCombo);
 	
-	box2fields = {};
-	for (const box of boxes)
-		box2fields[box.title] = box.fields;
-	
 	box2comment = {};
 	for (let {box,comment} of boxComments)
 	{
@@ -728,22 +616,9 @@ function refreshEditDataFromJson(Json)
 function enable_disable()
 {
 	const box = boxCombo.value;
-	const field = fieldCombo.value;
 	const boxComment = boxCommentTextArea.value;
 	const fieldComment = fieldCommentTextArea.value;
-	var fieldIndex = -1;
-	var name = newFieldEditField.value;
-/*
-	if (box in box2fields)
-	{
-		let myfield = box2fields[box].find( f => f.name == field );
-		if (myfield !== undefined)
-		{
-			({isPrimaryKey, isForeignKey} = myfield);
-			console.log(myfield);
-		}
-	}
-*/	
+	
 	document.getElementById("add box").disabled = newBoxEditField.value.length == 0 || myBoxes.indexOf(newBoxEditField.value) != -1;
 	document.getElementById("drop box").disabled = boxCombo.selectedIndex == -1 ||
 												newBoxEditField.value.length != 0;
@@ -751,15 +626,7 @@ function enable_disable()
 														newBoxEditField.value.length == 0 ||
 														boxCombo.value == newBoxEditField.value ||
 														myBoxes.indexOf(newBoxEditField.value) != -1 ;
-	
-	document.getElementById("add field").disabled = newFieldEditField.value.length == 0 || box2fields[box].findIndex(f => f.name == newFieldEditField.value) != -1;
-	document.getElementById("drop field").disabled = fieldCombo.selectedIndex == -1 ||
-													newFieldEditField.value.length != 0;
-	
-	document.getElementById("update field").disabled = fieldCombo.selectedIndex == -1 ||
-														//newFieldEditField.value.length == 0 ||
-														(newFieldEditField.value.length != 0 && newFieldEditField.value == fieldCombo.value) ||
-														box2fields[box].findIndex(f => f.name == newFieldEditField.value) != -1;	
+		
 	
 	document.getElementById("drop link").disabled = linkCombo.selectedIndex == -1;
 
