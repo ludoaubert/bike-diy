@@ -460,6 +460,7 @@ function refreshEditDataFromJson(Json)
 
 function enable_disable()
 {
+/*
 	const box = boxCombo.value;
 	const boxComment = boxCommentTextArea.value;
 	const fieldComment = fieldCommentTextArea.value;
@@ -482,6 +483,7 @@ function enable_disable()
 
 	document.getElementById("add link").disabled = fromBoxCombo.selectedIndex == -1 ||
 													toBoxCombo.selectedIndex == -1;
+*/
 }
 
 setInterval("enable_disable()", 100);
