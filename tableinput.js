@@ -322,6 +322,10 @@ function updateBox()
 function updateFieldAttributes(value)
 {	
 	alert(value);
+	
+	const id_picture = mypicture.findIndex(picture => picture.Path == value);
+	alert(id_picture);
+	
 	if (fieldCombo.selectedIndex != -1)
 	{
 		const box = boxCombo.value;
