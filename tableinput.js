@@ -22,6 +22,10 @@ var fromBoxCombo = document.getElementById("from boxes");
 var toBoxCombo = document.getElementById("to boxes");
 var imagesAutocompleteCombo = document.getElementById("pictures");
 
+imagesAutocompleteCombo.addEventListener("change", function () {
+	alert("hello there");
+}
+
 
 input.addEventListener("change", function () {
   if (this.files && this.files[0]) {
