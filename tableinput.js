@@ -3,7 +3,7 @@ var mypictures;
 // FRAME_MARGIN is duplicated in diagload.js
 const FRAME_MARGIN = 20;
 
-var mydata={boxes=[],links=[]};
+var mydata={boxes:[],links:[]};
 var currentBoxIndex = -1;
 
 
