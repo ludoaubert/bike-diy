@@ -1,5 +1,11 @@
 [
 	{
+		"id":0,   
+		"Libelle":"placeholder", 
+		"id_product":0, 
+		"Path":"placeholder.jpg"
+	},
+	{
 		"id":1,   
 		"Libelle":"Triban Fork and Disc Brake Calliper", 
 		"id_product":3, 

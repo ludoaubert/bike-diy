@@ -1,6 +1,13 @@
 
 [
 	{
+		"id":0, 
+		"Libelle":"placeholder", 
+		"id_brand":0, 
+		"id_comp":0, 
+		"SerialNumber":""
+	},
+	{
 		"id":1, 
 		"Libelle":"SKS Bluemels Primus 45mm 28Inch", 
 		"id_brand":4, 
