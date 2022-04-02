@@ -186,6 +186,7 @@ function addNewBox()
 
 function selectBox(name)
 {
+	alert(name);
 	currentBoxIndex = mydata.boxes.findIndex(box => box.title==name);
 	displayCurrent();
 }
