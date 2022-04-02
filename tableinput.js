@@ -170,7 +170,8 @@ function displayCurrent()
 {
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
-	imagesAutocompleteCombo.value = mypictures[id_picture].Path;
+	if (id_picture != -1)
+		imagesAutocompleteCombo.value = mypictures[id_picture].Path;
 	newBoxEditField.value='';
 }
 
