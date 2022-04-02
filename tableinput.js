@@ -3,6 +3,10 @@ var mypictures;
 // FRAME_MARGIN is duplicated in diagload.js
 const FRAME_MARGIN = 20;
 
+var mydata={boxes=[],links=[]};
+var currentBoxIndex = -1;
+
+
 var myBoxes = [];
 var box2idimage = {};
 var box2comment = {};
@@ -12,7 +16,6 @@ var field2comment = {};
 var input = document.getElementById("myFile");
 var editTitle = document.getElementById("title");
 var boxCombo = document.getElementById("boxes");
-var fieldCombo = document.getElementById("fields");
 var boxCommentTextArea = document.getElementById("box comment");	
 var fieldCommentTextArea = document.getElementById("field comment");
 var linkCombo = document.getElementById("links");
@@ -154,67 +157,36 @@ alert("scanning pictures");
 }
 
 
-
-document.addEventListener('DOMContentLoaded', init, false);
-
-
-function sortSelect(selElem) 
-{
-    let tmpAry = [];
-    for (let {text, value} of selElem.options) 
-	{
-        tmpAry.push([text, value]);
-    }
-    tmpAry.sort();
-	removeOptions(selElem);
-   
-    for (let [text, value] of tmpAry) 
-	{
-        selElem.add(new Option(text, value));
-    }
+function updateFieldAttributes(value)
+{	
+	alert(value);
+	const id_picture = mypictures.findIndex(picture => picture.Path == value);
+	alert(id_picture);
+	mydata.boxes[currentBoxIndex].id_picture = id_picture;
 }
 
-function removeOptions(selElem) 
-{
-    while (selElem.options.length) 
-	{
-        selElem.remove(0);
-    }
-}
 
-function copyOptions(sourceElem, targetElem)
+function displayCurrent()
 {
-	removeOptions(targetElem);
-	for (let {text, value} of sourceElem.options)
-	{
-		targetElem.add(new Option(text, value));
-    }
-	sortSelect(targetElem);
-}
-
-function selectCascadeBox()
-{
-	copyOptions(boxCombo, fromBoxCombo);
-	selectBox(fromBoxCombo, fromFieldCombo);
-	copyOptions(boxCombo, toBoxCombo);
-	selectBox(toBoxCombo, toFieldCombo);
-	selectBox(boxCombo, fieldCombo);
-	updateFieldAttributes();
-	copyOptions(boxCombo, colorBoxCombo);
-	selectField();	
+	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
+	boxCombo.value = title;
+	imagesAutocompleteCombo.value = mypictures[id_picture].Path;
+	newBoxEditField.value='';
 }
 
 function addNewBox()
 {
 	const text = newBoxEditField.value;
+	currentBoxIndex = mydata.boxes.size():
+	mydata.boxes.add({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
 	boxCombo.add(new Option(text,text));
-	sortSelect(boxCombo);
-	boxCombo.value = newBoxEditField.value;
-	myBoxes.push(newBoxEditField.value);
-	box2idimage[newBoxEditField.value] = [];
-	newBoxEditField.value='';
-	boxCommentTextArea.value='';
-	selectCascadeBox();
+	displayCurrent();
+}
+
+function selectBox(name)
+{
+	currentBoxIndex = mydata.boxes.findIndex(box => box.title==name);
+	displayCurrent();
 }
 
 function dropBox()
@@ -244,133 +216,6 @@ function dropBox()
 			linkCombo.remove(i);
 		}
 	}		
-}
-
-
-function updateBox()
-{
-	//alert("updateBox");
-	const box = boxCombo.value;
-	
-	boxCombo.remove(boxCombo.selectedIndex);
-	
-	//alert(JSON.stringify(box2idimage[box]));
-	
-	let index = myBoxes.indexOf(box);
-	myBoxes[index] = newBoxEditField.value;
-		
-	box2idimage[newBoxEditField.value] = box2idimage[box];
-	delete box2idimage[box];
-	
-	for (const {name} of box2idimage[newBoxEditField.value])
-	{
-		const field = name;
-		//alert(field);
-
-		if (`${box}.${field}` in field2comment)
-		{
-			//alert("Cascade updating comment: " + field2comment[`${box}.${field}`]);
-			field2comment[`${newBoxEditField.value}.${field}`] = field2comment[`${box}.${field}`];
-			delete field2comment[`${box}.${field}`];
-		}
-		
-		if (`${box}.${field}` in field2color)
-		{
-			//alert("Cascade updating comment: " + field2color[`${box}.${field}`]);
-			field2color[`${newBoxEditField.value}.${field}`] = field2color[`${box}.${field}`];
-			delete field2color[`${box}.${field}`];
-		}
-	}
-	
-	for (let option of linkCombo.options)
-	{
-	//Split a string with multiple parameters: Pass in a regexp as the parameter.
-		let [fromBoxTitle, fromFieldName, fromCardinality, toBoxTitle, toFieldName, toCardinality] = option.text.split(/ -> |\./);
-		let replace = false;
-		if (fromBoxTitle == box)
-		{
-			replace = true;
-			fromBoxTitle = newBoxEditField.value;
-		}
-		if (toBoxTitle == box)
-		{
-			replace = true;
-			toBoxTitle = newBoxEditField.value;
-		}
-		if (replace)
-		{
-			//alert ("Cascade updating link: " + option.text);
-			option.text = `${fromBoxTitle}.${fromFieldName}.${fromCardinality} -> ${toBoxTitle}.${toFieldName}.${toCardinality}`;
-		}
-	}	
-
-	sortSelect(linkCombo);	
-	
-	const text = newBoxEditField.value
-	boxCombo.add(new Option(text,text));
-	boxCombo.value = newBoxEditField.value;
-	newBoxEditField.value = '';
-	
-	copyOptions(boxCombo, fromBoxCombo);
-	copyOptions(boxCombo, toBoxCombo);	
-	
-	//alert(JSON.stringify(box2idimage));
-}
-
-
-function updateFieldAttributes(value)
-{	
-	alert(value);
-	
-	const id_picture = mypictures.findIndex(picture => picture.Path == value);
-	alert(id_picture);
-	
-	if (fieldCombo.selectedIndex != -1)
-	{
-		const box = boxCombo.value;
-		const fields = box2idimage[box];
-	}
-	
-	selectField();
-}
-
-function selectBox(boxCombo, fieldCombo)
-{
-	if (boxCombo.selectedIndex != -1)
-	{
-		removeOptions(fieldCombo);
-		var box = boxCombo.value;
-		var fields = box2idimage[box];
-
-		for (let {name} of fields)
-		{
-			fieldCombo.add(new Option(name,name));
-		}
-		sortSelect(fieldCombo);
-	}
-}
-
-
-function selectField()
-{
-	if (boxCombo.selectedIndex != -1 && fieldCombo.selectedIndex != -1)
-	{	
-		removeOptions(valueCombo);
-		var box = boxCombo.value;
-		var field = fieldCombo.value;
-		
-		boxCommentTextArea.value = "";
-		if (box in box2comment)
-		{
-			boxCommentTextArea.value = box2comment[box];
-		}
-		
-		fieldCommentTextArea.value = "";
-		if (`${box}.${field}` in field2comment)
-		{
-			fieldCommentTextArea.value = field2comment[`${box}.${field}`];
-		}
-	}
 }
 
 
