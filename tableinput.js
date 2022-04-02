@@ -1,4 +1,3 @@
-var pictures;
 var mypictures;
 
 // FRAME_MARGIN is duplicated in diagload.js
