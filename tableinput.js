@@ -148,7 +148,6 @@ function download2(filename) {
 function load(pictures) {
 	mypictures = JSON.parse(pictures);
 alert("scanning pictures");
-	imagesAutocompleteCombo.innerHTML = "";
 	for (const {id, Libelle, id_product, Path} of mypictures)
 	{
 		var option = document.createElement('option');
@@ -172,9 +171,11 @@ function displayCurrent()
 {
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
-	load(pictures);
+
 	if (id_picture != -1)
 		imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
+	else
+		imagesAutocompleteCombo.value = '';
 	newBoxEditField.value='';
 }
 
