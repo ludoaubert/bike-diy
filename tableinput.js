@@ -159,6 +159,7 @@ alert("scanning pictures");
 
 function updateFieldAttributes(value)
 {	
+	console.log(value);
 	alert(value);
 	const id_picture = mypictures.findIndex(picture => picture.Path == value);
 	alert(id_picture);
@@ -169,13 +170,19 @@ function updateFieldAttributes(value)
 
 function displayCurrent()
 {
+	consolr.log(currentBoxIndex);
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
+	
+	console.log(id_picture);
 
 	if (id_picture != -1)
 		imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
 	else
 		imagesAutocompleteCombo.value = '';
+	
+	console.log(imagesAutocompleteCombo.value);
+	
 	newBoxEditField.value='';
 }
 
@@ -184,6 +191,7 @@ function addNewBox()
 	const text = newBoxEditField.value;
 	currentBoxIndex = mydata.boxes.length;
 	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
+	console.log(mydata.boxes);
 	boxCombo.add(new Option(text,text));
 	displayCurrent();
 }
