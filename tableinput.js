@@ -163,6 +163,7 @@ function updateFieldAttributes(value)
 	const id_picture = mypictures.findIndex(picture => picture.Path == value);
 	alert(id_picture);
 	mydata.boxes[currentBoxIndex].id_picture = id_picture;
+	displayCurrent();
 }
 
 
