@@ -24,7 +24,7 @@ var imagesAutocompleteCombo = document.getElementById("pictures");
 
 imagesAutocompleteCombo.addEventListener("change", function () {
 	alert("hello there");
-}
+});
 
 
 input.addEventListener("change", function () {
