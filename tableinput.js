@@ -323,7 +323,7 @@ function updateFieldAttributes(value)
 {	
 	alert(value);
 	
-	const id_picture = mypicture.findIndex(picture => picture.Path == value);
+	const id_picture = mypictures.findIndex(picture => picture.Path == value);
 	alert(id_picture);
 	
 	if (fieldCombo.selectedIndex != -1)
