@@ -1,3 +1,4 @@
+var pictures;
 var mypictures;
 
 // FRAME_MARGIN is duplicated in diagload.js
@@ -148,6 +149,7 @@ function download2(filename) {
 function load(pictures) {
 	mypictures = JSON.parse(pictures);
 alert("scanning pictures");
+	imagesAutocompleteCombo.innerHTML = "":
 	for (const {id, Libelle, id_product, Path} of mypictures)
 	{
 		var option = document.createElement('option');
@@ -171,7 +173,9 @@ function displayCurrent()
 {
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
-	imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
+	load(pictures);
+	if (id_picture != -1)
+		imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
 	newBoxEditField.value='';
 }
 
@@ -179,7 +183,7 @@ function addNewBox()
 {
 	const text = newBoxEditField.value;
 	currentBoxIndex = mydata.boxes.length;
-	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:0});
+	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
 	boxCombo.add(new Option(text,text));
 	displayCurrent();
 }
