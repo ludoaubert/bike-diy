@@ -170,7 +170,7 @@ function updateFieldAttributes(value)
 
 function displayCurrent()
 {
-	consolr.log(currentBoxIndex);
+	console.log(currentBoxIndex);
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
 	
