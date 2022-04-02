@@ -178,7 +178,7 @@ function addNewBox()
 {
 	const text = newBoxEditField.value;
 	currentBoxIndex = mydata.boxes.length;
-	mydata.boxes.add({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
+	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
 	boxCombo.add(new Option(text,text));
 	displayCurrent();
 }
