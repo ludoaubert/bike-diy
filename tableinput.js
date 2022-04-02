@@ -170,7 +170,7 @@ function displayCurrent()
 {
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
-	imagesAutocompleteCombo.value = id_picture != -1 ? mypictures[id_picture].Path : "";
+	imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
 	newBoxEditField.value='';
 }
 
@@ -178,7 +178,7 @@ function addNewBox()
 {
 	const text = newBoxEditField.value;
 	currentBoxIndex = mydata.boxes.length;
-	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
+	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:0});
 	boxCombo.add(new Option(text,text));
 	displayCurrent();
 }
