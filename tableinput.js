@@ -148,7 +148,7 @@ function download2(filename) {
 function load(pictures) {
 	mypictures = JSON.parse(pictures);
 alert("scanning pictures");
-	imagesAutocompleteCombo.innerHTML = "":
+	imagesAutocompleteCombo.innerHTML = "";
 	for (const {id, Libelle, id_product, Path} of mypictures)
 	{
 		var option = document.createElement('option');
