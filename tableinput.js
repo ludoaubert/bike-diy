@@ -319,9 +319,9 @@ function updateBox()
 }
 
 
-function updateFieldAttributes()
+function updateFieldAttributes(value)
 {	
-	alert(this.value);
+	alert(value);
 	if (fieldCombo.selectedIndex != -1)
 	{
 		const box = boxCombo.value;
