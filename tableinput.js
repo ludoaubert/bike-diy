@@ -145,6 +145,15 @@ function download2(filename) {
 }
 
 
+function comboOnClick(id)
+{
+	document.getElementById(id).innerHtml = mydata.boxes
+												.map(box => "<option>" + box.title + "</option>")
+												.join('');
+}
+
+
+
 function load(pictures) {
 	mypictures = JSON.parse(pictures);
 alert("scanning pictures");
