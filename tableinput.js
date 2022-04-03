@@ -147,6 +147,7 @@ function download2(filename) {
 
 function comboOnClick(id)
 {
+	alert("comboOnClick");
 	document.getElementById(id).innerHTML = mydata.boxes
 												.map(box => "<option>" + box.title + "</option>")
 												.join('');
