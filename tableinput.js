@@ -179,7 +179,9 @@ function displayCurrent()
 	if (id_picture != -1)
 		imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
 	else
-		imagesAutocompleteCombo.value = '';
+		imagesAutocompleteCombo.value = "";
+	
+	document.getElementById("picture").value = (id_picture != -1) ? mypictures[id_picture].Path : "";
 	
 	console.log(imagesAutocompleteCombo.value);
 	
