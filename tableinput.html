@@ -114,7 +114,7 @@
 	Links: <select id="links" onchange="selectLink()" class="bigselect"></select>
 	<button type="button" id="drop link" onclick="dropLink()">Drop Link</button>
 	<br>
-	From Box: <select id="from boxes" onchange="alert('titi');"></select>
+	From Box: <select id="from boxes" onchange="alert('onchange');" onclick="alert('onclick');"></select>
 	To Box: <select id="to boxes"  onchange="selectBox(toBoxCombo, toFieldCombo)"></select>
 	<button id="add link" type="button" onclick="addNewLink()">Add New Link</button>
 	<button id="update link" type="button" onclick="updateLink()">Update Link</button>
