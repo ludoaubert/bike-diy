@@ -173,18 +173,7 @@ function displayCurrent()
 	console.log(currentBoxIndex);
 	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
 	boxCombo.value = title;
-	
-	console.log(id_picture);
-
-	if (id_picture != -1)
-		imagesAutocompleteCombo.value = mypictures[id_picture].Path ;
-	else
-		imagesAutocompleteCombo.value = "";
-	
 	document.getElementById("picture").value = (id_picture != -1) ? mypictures[id_picture].Path : "";
-	
-	console.log(imagesAutocompleteCombo.value);
-	
 	newBoxEditField.value='';
 }
 
