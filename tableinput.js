@@ -274,15 +274,9 @@ function addNewLink()
 
 function dropLink()
 {
-	const index = mydata.links.findIndex(lk => mydata.boxes[lk.from].title + " => " + mydata.boxes[lk.to].title == linkCombo.value);
-	
-	console.log(index);
-	
-	if (index != -1)
-		mydata.links..splice(index, 1); // 2nd parameter means remove one item only
-	
 	console.log(mydata.links);
-	
+	mydata.links = mydata.links.filter(lk => mydata.boxes[lk.from].title + " => " + mydata.boxes[lk.to].title != linkCombo.value);
+	console.log(mydata.links);
 	linkComboOnClick();
 }
 
