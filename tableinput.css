@@ -1,9 +1,9 @@
 
 select { width:200px;}	/*This will set a minimum width on all selects to 200px, and will grow if you need it.*/
 
-.bigselect { width: 600px;}
-.bigtextfield { width: 400px; }
-.cardinality_select { width: 50px;}
+#links { width: 600px;}
+#title { width: 400px; }
+#picture { width: 800px; }
 
 ul
 {
@@ -27,3 +27,4 @@ form * {
   display: block;
   margin: 10px;
 }
+

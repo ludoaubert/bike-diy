@@ -77,7 +77,7 @@
 
 <fieldset>
 	<legend>Diagram Title</legend>
-	<input type="text" id="title" class="bigtextfield">
+	<input type="text" id="title">
 </fieldset>
 
 <fieldset>
@@ -111,7 +111,7 @@
 
 <fieldset>
 	<legend>Box Links</legend>
-	Links: <select id="links" onchange="selectLink()" class="bigselect"></select>
+	Links: <select id="links" onchange="selectLink()"></select>
 	<button type="button" id="drop link" onclick="dropLink()">Drop Link</button>
 	<br>
 	From Box: <select id="from boxes" onchange="alert('onchange');" onclick="comboOnClick('from boxes');"></select>
