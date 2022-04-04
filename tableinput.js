@@ -236,7 +236,7 @@ function dropBox()
 }
 
 
-function linkComboOnClick(id)
+function linkComboOnClick()
 {
 	console.log("linkComboOnClick");
 	const innerHTML = mydata.links
