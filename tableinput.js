@@ -255,10 +255,10 @@ function updateLink()
 function addNewLink()
 {
 	const lk = {
-		"from":mydata.boxes.find(box => box.title = fromBoxCombo.value).id,
+		"from":mydata.boxes.find(box => box.title == fromBoxCombo.value).id,
 		"fromField":-1,
 		"fromCardinality":"undefined",
-		"to":mydata.boxes.find(box => box.title = toBoxCombo.value).id,
+		"to":mydata.boxes.find(box => box.title == toBoxCombo.value).id,
 		"toField":-1,
 		"toCardinality":"undefined",
 		"Category":""
