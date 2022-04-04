@@ -254,8 +254,7 @@ function updateLink()
 
 function addNewLink()
 {
-	mydata.boxes.find(box => box.title = fromBoxCombo.value).id
-	mydata.links.push({
+	const lk = {
 		"from":mydata.boxes.find(box => box.title = fromBoxCombo.value).id,
 		"fromField":-1,
 		"fromCardinality":"undefined",
@@ -263,7 +262,11 @@ function addNewLink()
 		"toField":-1,
 		"toCardinality":"undefined",
 		"Category":""
-	});
+	};
+	
+	console.log(lk);
+	
+	mydata.links.push(lk);
 }
 
 function dropLink()
