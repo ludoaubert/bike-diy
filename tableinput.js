@@ -236,7 +236,7 @@ function dropBox()
 }
 
 
-function linkComboOnClick()
+function linkComboOnClick(id)
 {
 	const innerHTML = mydata.links
 							.map(lk => "<option>" + mydata.boxes[lk.from].title + " => " + mydata.boxes[lk.to].title + "</option>")
