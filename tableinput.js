@@ -179,9 +179,17 @@ function updateFieldAttributes(value)
 function displayCurrent()
 {
 	console.log(currentBoxIndex);
-	const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
-	boxCombo.value = title;
-	document.getElementById("picture").value = (id_picture != -1) ? mypictures[id_picture].Path : "";
+	if (currentBoxIndex != -1)
+	{
+		const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
+		boxCombo.value = title;
+		document.getElementById("picture").value = (id_picture != -1) ? mypictures[id_picture].Path : "";
+	}
+	else
+	{
+		boxCombo.value = "";
+		document.getElementById("picture").value = "";
+	}
 	newBoxEditField.value='';
 }
 
@@ -223,6 +231,9 @@ function dropBox()
 	}
 	
 	console.log(mydata);
+	if (currentBoxIndex == mydata.boxes.length)
+		currentBoxIndex = -1;
+	displayCurrent();
 }
 
 
