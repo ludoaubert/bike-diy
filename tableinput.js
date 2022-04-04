@@ -241,6 +241,8 @@ function linkComboOnClick()
 	const innerHTML = mydata.links
 							.map(lk => "<option>" + mydata.boxes[lk.from].title + " => " + mydata.boxes[lk.to].title + "</option>")
 							.join('');
+	
+	console.log(innerHTML);
 							
 	if (document.getElementById("links").innerHTML != innerHTML)
 		document.getElementById("links").innerHTML = innerHTML;
