@@ -198,7 +198,7 @@ function addNewBox()
 
 function selectBox(name)
 {
-	alert(name);
+	consol.log(name);
 	currentBoxIndex = mydata.boxes.findIndex(box => box.title==name);
 	displayCurrent();
 }
