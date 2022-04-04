@@ -7,12 +7,6 @@ var mydata={documentTitle:"",boxes:[],links:[]};
 var currentBoxIndex = -1;
 
 
-var myBoxes = [];
-var box2idimage = {};
-var box2comment = {};
-var field2comment = {};
-
-
 var input = document.getElementById("myFile");
 var editTitle = document.getElementById("title");
 var boxCombo = document.getElementById("boxes");
@@ -161,7 +155,7 @@ function comboOnClick(id)
 
 function load(pictures) {
 	mypictures = JSON.parse(pictures);
-alert("scanning pictures");
+	console.log("scanning pictures");
 	for (const {id, Libelle, id_product, Path} of mypictures)
 	{
 		var option = document.createElement('option');
@@ -174,9 +168,9 @@ alert("scanning pictures");
 function updateFieldAttributes(value)
 {	
 	console.log(value);
-	alert(value);
+	console.log(value);
 	const id_picture = mypictures.findIndex(picture => picture.Path == value);
-	alert(id_picture);
+	console.log(id_picture);
 	mydata.boxes[currentBoxIndex].id_picture = id_picture;
 	displayCurrent();
 }
@@ -210,31 +204,25 @@ function selectBox(name)
 
 function dropBox()
 {
-	const box = boxCombo.value;
-	let index = myBoxes.indexOf(box);
-	myBoxes.splice(index,1);
-	for (const {name} in box2idimage[box])
+	console.log('dropBox');
+	currentBoxIndex = mydata.boxes.findIndex(box => box.title == boxCombo.value);
+	console.log(currentBoxIndex);
+	
+	mydata.boxes = mydata.boxes.filter(box => box.title != boxCombo.value);
+	mydata.links = mydata.links.filter(lk => lk.from != currentBoxIndex && lk.to != currentBoxIndex);
+	
+	for (let box of mydata.boxes)
 	{
-		const field = name;
-		delete field2comment[`${box}.${field}`];
+		box.id = box.id > currentBoxIndex ? box.id - 1 : box.id;
 	}
-	delete box2idimage[box];
-	boxCombo.remove(boxCombo.selectedIndex);
 	
-	selectCascadeBox();
-	
-	alert(JSON.stringify(box2idimage));
-	
-	for (let i=linkCombo.options.length-1; i >= 0; i--) 
+	for (let lk of mydata.links)
 	{
-	//Split a string with multiple parameters: Pass in a regexp as the parameter.
-		let [fromBoxTitle, , ,toBoxTitle, ,] = linkCombo.options[i].text.split(/ -> |\./);
-		if (fromBoxTitle == box || toBoxTitle == box)
-		{
-			alert ("Cascade dropping link: " + linkCombo.options[i].text);
-			linkCombo.remove(i);
-		}
-	}		
+		lk.from = lk.from > currentBoxIndex ? lk.from - 1 : lk.from;
+		lk.to = lk.to > currentBoxIndex ? lk.to - 1 : lk.to;
+	}
+	
+	console.log(mydata);
 }
 
 
