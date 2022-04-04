@@ -236,14 +236,14 @@ function dropBox()
 }
 
 
-function selectLink()
+function linkComboOnClick()
 {
-	const myRegexp = /([^\.]+)\.([^\.]+)\.([^\s]+) \-\> ([^\.]+)\.([^\.]+)\.([^\s]+)/g;
-	const match = myRegexp.exec(linkCombo.value);
-	fromBoxCombo.value = match[1];
-	selectBox(fromBoxCombo, fromFieldCombo);
-	toBoxCombo.value = match[4];
-	selectBox(toBoxCombo, toFieldCombo);
+	const innerHTML = mydata.links
+							.map(lk => "<option>" + mydata.boxes[lk.from].title + " => " + mydata.boxes[lk.to].title + "</option>")
+							.join('');
+							
+	if (document.getElementById("links").innerHTML != innerHTML)
+		document.getElementById("links").innerHTML = innerHTML;
 }
 
 function updateLink()
