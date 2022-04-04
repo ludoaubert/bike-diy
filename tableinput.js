@@ -254,10 +254,16 @@ function updateLink()
 
 function addNewLink()
 {
-	const text = `${fromBoxCombo.value}.. \-> ${toBoxCombo.value}..`;					
-	linkCombo.add(new Option(text, text));
-	sortSelect(linkCombo);
-	linkCombo.value = text;
+	mydata.boxes.find(box => box.title = fromBoxCombo.value).id
+	mydata.links.push({
+		"from":mydata.boxes.find(box => box.title = fromBoxCombo.value).id,
+		"fromField":-1,
+		"fromCardinality":"undefined",
+		"to":mydata.boxes.find(box => box.title = toBoxCombo.value).id,
+		"toField":-1,
+		"toCardinality":"undefined",
+		"Category":""
+	});
 }
 
 function dropLink()
