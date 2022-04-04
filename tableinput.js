@@ -31,7 +31,8 @@ input.addEventListener("change", function () {
     var reader = new FileReader();
     
     reader.addEventListener('load', function (e) {
-	  refreshEditDataFromJson(e.target.result);
+		mydata = JSON.parse(e.target.result);
+	  //refreshEditDataFromJson(e.target.result);
     });
     
     reader.readAsBinaryString(myFile);
@@ -41,8 +42,8 @@ input.addEventListener("change", function () {
 
 function download(filename) {
   var element = document.createElement('a');
-  const Json = refreshJsonFromEditData();
-  const jsons = prettyData(JSON.stringify(Json));
+  //const Json = refreshJsonFromEditData();
+  const jsons = prettyData(JSON.stringify(mydata));
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + jsons);
   element.setAttribute('download', filename);
   element.style.display = 'none';
@@ -54,8 +55,9 @@ function download(filename) {
 
 function download2(filename) {
 	var element = document.createElement('a');
-	const Json = refreshJsonFromEditData();
-	const {links, rectangles} = Json;
+	const rectangles = compute_box_rectangles(mydata.boxes);
+	//const Json = refreshJsonFromEditData();
+	//const {links, rectangles} = Json;
 	
 	const hex = (i,n) => i.toString(16).padStart(n,'0');
 	
@@ -63,17 +65,17 @@ function download2(filename) {
 						.map(r => hex(r.right-r.left,3)+hex(r.bottom-r.top,3));
 	console.log(rectdim);
 						
-	const slinks = links.filter(lk => lk.from != lk.to)
-						.filter(lk => lk.Category != "TR2")
-						.map(lk => [lk.from, lk.to])
-						.map(lk => JSON.stringify(lk))
-						.filter(function(lk, pos, self){
-									return self.indexOf(lk) == pos;}
-						) //removing duplicates
-						.map(lk => JSON.parse(lk))
-						.flat()
-						.map(i => hex(i,3))
-						.join('');
+	const slinks = mydata.links.filter(lk => lk.from != lk.to)
+							.filter(lk => lk.Category != "TR2")
+							.map(lk => [lk.from, lk.to])
+							.map(lk => JSON.stringify(lk))
+							.filter(function(lk, pos, self){
+										return self.indexOf(lk) == pos;}
+							) //removing duplicates
+							.map(lk => JSON.parse(lk))
+							.flat()
+							.map(i => hex(i,3))
+							.join('');
 	console.log(slinks);
 	
 	latuile = Module.cwrap("latuile","string",["string","string"]);
@@ -310,7 +312,7 @@ function updateFieldComment()
 	field2comment[`${box}.${field}`] = fieldCommentTextArea.value;
 }
 
-
+/*
 function refreshJsonFromEditData()
 {	
 	var boxes = [];
@@ -375,7 +377,7 @@ function refreshJsonFromEditData()
 	const json = {documentTitle, boxes, boxComments, fieldComments, links, rectangles};
 	return json;
 }
-
+*/
 
 
 const MONOSPACE_FONT_PIXEL_WIDTH=7;
@@ -410,7 +412,7 @@ function compute_box_rectangles(boxes)
 	return rectangles;
 }
 
-
+/*
 function refreshEditDataFromJson(Json)
 {
 	const {documentTitle, boxes, values, boxComments, fieldComments, links, fieldColors, rectangles, http_get_param, http_get_request} = JSON.parse(Json);
@@ -487,6 +489,7 @@ function refreshEditDataFromJson(Json)
 	selectBox(toBoxCombo, toFieldCombo);
 	selectField();
 }
+*/
 
 
 function enable_disable()
