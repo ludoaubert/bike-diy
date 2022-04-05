@@ -46,9 +46,9 @@ function download(filename) {
 
 
 function download2(filename) {
-	var element = document.createElement('a');
-	const rectangles = compute_box_rectangles(mydata.boxes);
 	
+	var element = document.createElement('a');
+	const rectangles = mydata.boxes.map(box => {"left":0, "right":200, "top":0, "bottom":200});
 	const hex = (i,n) => i.toString(16).padStart(n,'0');
 	
 	const rectdim = rectangles
@@ -304,38 +304,6 @@ function updateFieldComment()
 	const box = boxCombo.value;
 	const field = fieldCombo.value;
 	field2comment[`${box}.${field}`] = fieldCommentTextArea.value;
-}
-
-const MONOSPACE_FONT_PIXEL_WIDTH=7;
-const CHAR_RECT_HEIGHT=16;	// in reality 14,8 + 1 + 1 (top and bottom padding) = 16,8
-const RECTANGLE_BOTTOM_CAP=200;
-
-function compute_box_rectangles(boxes)
-{
-	var rectangles = []
-	for (const {title,id,fields} of boxes)
-	{
-		let fields = box2idimage[title];
-
-		var nr_col = 0 ;
-		var width = 2*4 + title.length * MONOSPACE_FONT_PIXEL_WIDTH ;
-		var max_width = width;
-		
-		for (const field of fields)
-		{
-			nr_col++ ;
-			const column_name = field.name;
-
-			var column_width= column_name.length ;
-
-			max_width = Math.max(column_width * MONOSPACE_FONT_PIXEL_WIDTH, max_width);
-		}
-		
-		const bottom = 8 + CHAR_RECT_HEIGHT * (nr_col+1) ;
-
-		rectangles.push({"left":0, "right":max_width, "top":0, "bottom":Math.min(bottom, RECTANGLE_BOTTOM_CAP)}) ;
-	}
-	return rectangles;
 }
 
 
