@@ -47,7 +47,6 @@ function download(filename) {
 
 function download2(filename) {
 	
-	var element = document.createElement('a');
 	const rectangles = mydata.boxes.map(box => ({"left":0, "right":200, "top":0, "bottom":200}));
 	const hex = (i,n) => i.toString(16).padStart(n,'0');
 	
@@ -128,6 +127,7 @@ function download2(filename) {
 	);
 	
 	const jsonCompletedResponse = prettyContexts(JSON.stringify(data));
+	var element = document.createElement('a');
 	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + jsonCompletedResponse);
 	element.setAttribute('download', filename);
 	element.style.display = 'none';
