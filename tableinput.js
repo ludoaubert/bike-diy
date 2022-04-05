@@ -102,20 +102,20 @@ function download2(filename) {
 			console.log(rectdim_);
 			console.assert(rectdim_.size == translations.size);
 			console.log(links);
-			const links_ = links
-							.filter(lk => lk.from != lk.to)
-							.filter(lk => lk.Category != "TR2")
-							.map(lk => ({from:lk.from, to:lk.to}))
-							.filter(lk => ids.indexOf(lk.from) != -1 && ids.indexOf(lk.to) != -1)
-							.map(lk => [ids.indexOf(lk.from), ids.indexOf(lk.to)])
-							.map(lk => JSON.stringify(lk))
-							.filter(function(lk, pos, self){
-										return self.indexOf(lk) == pos;}
-							) //removing duplicates
-							.map(lk => JSON.parse(lk))							
-							.flat()
-							.map(i => hex(i,2))
-							.join('');	
+			const links_ = mydata.links
+								.filter(lk => lk.from != lk.to)
+								.filter(lk => lk.Category != "TR2")
+								.map(lk => ({from:lk.from, to:lk.to}))
+								.filter(lk => ids.indexOf(lk.from) != -1 && ids.indexOf(lk.to) != -1)
+								.map(lk => [ids.indexOf(lk.from), ids.indexOf(lk.to)])
+								.map(lk => JSON.stringify(lk))
+								.filter(function(lk, pos, self){
+											return self.indexOf(lk) == pos;}
+								) //removing duplicates
+								.map(lk => JSON.parse(lk))							
+								.flat()
+								.map(i => hex(i,2))
+								.join('');	
 			console.log(links_);
 			const json2 = bombix(rectdim_, translations, sframe, links_);
 			console.log(json2);
