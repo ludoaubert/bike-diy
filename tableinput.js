@@ -164,7 +164,6 @@ function load(pictures) {
 function updateFieldAttributes(value)
 {	
 	console.log(value);
-	console.log(value);
 	const id_picture = mypictures.findIndex(picture => picture.Path == value);
 	console.log(id_picture);
 	mydata.boxes[currentBoxIndex].id_picture = id_picture;
