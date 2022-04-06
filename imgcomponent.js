@@ -27,6 +27,7 @@ function drawComponent(id)
 	const id_picture = box.id_picture;
 	console.log(id_picture);
 	const picture = mypictures[id_picture];
+	console.log(picture);
 	const Path = picture.Path;
 	console.log(Path);
 	const product = myproducts[picture.id_product];
