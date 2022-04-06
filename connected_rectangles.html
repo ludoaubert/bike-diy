@@ -24,12 +24,14 @@
 		var data = null;
 		var contexts = null;
 		
+		const canLoad = () => data != null && contexts != null && pictures != null;
+		
 		var xmlhttp1 = new XMLHttpRequest();
 
 		xmlhttp1.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				data = this.responseText;
-				if (data != null && contexts != null && pictures != null)
+				if (canLoad())
 					loadDiag(data, contexts);
 			}
 		};
@@ -42,7 +44,7 @@
 		xmlhttp2.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				contexts = this.responseText;
-				if (data != null && contexts != null && pictures != null)
+				if (canLoad())
 					loadDiag(data, contexts);
 			}
 		};
@@ -55,7 +57,7 @@
 			if (this.readyState == 4 && this.status == 200) {
 				pictures = this.responseText;
 				console.log(pictures);
-				if (data != null && contexts != null && pictures != null)
+				if (canLoad())
 					loadDiag(data, contexts);
 			}
 		};
