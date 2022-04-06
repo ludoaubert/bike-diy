@@ -24,7 +24,7 @@
 		var data = null;
 		var contexts = null;
 		var brands = null;
-		var component-types = null;
+		var componenttypes = null;
 		var products = null;
 		
 		const canLoad = () => data != null && contexts != null && pictures != null;
@@ -66,6 +66,45 @@
 		};
 		xmlhttp3.open("GET", "pictures.json", true);
 		xmlhttp3.send();
+		
+		var xmlhttp4 = new XMLHttpRequest();
+
+		xmlhttp4.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				brands = this.responseText;
+				console.log(brands);
+				if (canLoad())
+					loadDiag(data, contexts);
+			}
+		};
+		xmlhttp4.open("GET", "brands.json", true);
+		xmlhttp4.send();
+		
+		var xmlhttp5 = new XMLHttpRequest();
+
+		xmlhttp5.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				componenttypes = this.responseText;
+				console.log(componenttypes);
+				if (canLoad())
+					loadDiag(data, contexts);
+			}
+		};
+		xmlhttp5.open("GET", "component-types.json", true);
+		xmlhttp5.send();
+		
+		var xmlhttp6 = new XMLHttpRequest();
+
+		xmlhttp6.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				products = this.responseText;
+				console.log(products);
+				if (canLoad())
+					loadDiag(data, contexts);
+			}
+		};
+		xmlhttp6.open("GET", "products.json", true);
+		xmlhttp6.send();
 	}
     </script>
 	
