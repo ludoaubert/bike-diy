@@ -1,4 +1,5 @@
-var mypictures=null;
+var pictures = null;
+var mypictures = null;
 
 
 function drawComponent(id) 
