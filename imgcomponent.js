@@ -11,7 +11,7 @@ function drawComponent(id)
 	console.log(id_picture);
 	const Path = mypictures[id_picture].Path;
 	console.log(Path);
-	return "<img src=\"" + Path + "\">" ;
+	return `<img id="${id}" src="${Path}" onmousedown="selectElement(this,'red')" onmouseup="selectElement(this,'green')" onmousemove="moveElement(event)">` ;
 }
 
 
