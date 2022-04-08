@@ -119,10 +119,10 @@ function selectBox(name)
 function dropBox()
 {
 	console.log('dropBox');
-	currentBoxIndex = mydata.boxes.findIndex(box => box.title == boxCombo.value);
+	currentBoxIndex = mydata.boxes.findIndex(box => box.title == document.getElementById("boxes").value);
 	console.log(currentBoxIndex);
 	
-	mydata.boxes = mydata.boxes.filter(box => box.title != boxCombo.value);
+	mydata.boxes = mydata.boxes.filter(box => box.title != document.getElementById("boxes").value);
 	mydata.links = mydata.links.filter(lk => lk.from != currentBoxIndex && lk.to != currentBoxIndex);
 	
 	for (let box of mydata.boxes)
@@ -191,20 +191,20 @@ function dropLink()
 
 function dropBoxComment()
 {
-	const box = boxCombo.value;
+	const box = document.getElementById("boxes").value;
 	delete box2comment[box];
 	boxCommentTextArea.value = "";
 }
 
 function updateBoxComment()
 {
-	const box = boxCombo.value;
+	const box = document.getElementById("boxes").value;
 	box2comment[box] = boxCommentTextArea.value;
 }
 
 function dropFieldComment()
 {
-	const box = boxCombo.value;
+	const box = document.getElementById("boxes").value;
 	const field = fieldCombo.value;
 	delete field2comment[`${box}.${field}`];
 	fieldCommentTextArea.value = "";
@@ -212,7 +212,7 @@ function dropFieldComment()
 
 function updateFieldComment()
 {
-	const box = boxCombo.value;
+	const box = document.getElementById("boxes").value;
 	const field = fieldCombo.value;
 	field2comment[`${box}.${field}`] = fieldCommentTextArea.value;
 }
