@@ -88,12 +88,12 @@ function displayCurrent()
 	if (currentBoxIndex != -1)
 	{
 		const {title, id, id_picture} = mydata.boxes[currentBoxIndex];
-		boxCombo.value = title;
+		document.getElementById("boxes").value = title;
 		document.getElementById("picture").value = (id_picture != -1) ? mypictures[id_picture].Path : "";
 	}
 	else
 	{
-		boxCombo.value = "";
+		document.getElementById("boxes").value = "";
 		document.getElementById("picture").value = "";
 	}
 	newBoxEditField.value='';
@@ -105,7 +105,7 @@ function addNewBox()
 	currentBoxIndex = mydata.boxes.length;
 	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
 	console.log(mydata.boxes);
-	boxCombo.add(new Option(text,text));
+	document.getElementById("boxes").add(new Option(text,text));
 	displayCurrent();
 }
 
