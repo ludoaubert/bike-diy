@@ -19,20 +19,6 @@ var toBoxCombo = document.getElementById("to boxes");
 var imagesAutocompleteCombo = document.getElementById("pictures");
 
 
-input.addEventListener("change", function () {
-  if (this.files && this.files[0]) {
-    var myFile = this.files[0];
-    var reader = new FileReader();
-    
-    reader.addEventListener('load', function (e) {
-		mydata = JSON.parse(e.target.result);
-    });
-    
-    reader.readAsBinaryString(myFile);
-  }   
-});
-
-
 function download(filename) {
   var element = document.createElement('a');
   const jsons = prettyData(JSON.stringify(mydata));
