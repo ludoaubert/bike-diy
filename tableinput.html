@@ -29,6 +29,7 @@
     <script type="text/javascript" src="latuile-origine.js"></script>
 	<link rel="stylesheet" type="text/css" href="diagstyle.css">
 	<link rel="stylesheet" type="text/css" href="tableinput.css">
+	<link rel="stylesheet" type="text/css" href="collapsible.css">
 
 </head>
 
@@ -54,26 +55,31 @@
       </li>
     </ul>
 
-<fieldset>
-	<legend>Data File Input</legend>
-	<input type="file" accept=".json" id="myFile" value="Load">
-</fieldset>
+<button type="button" class="collapsible">Input Output</button>
+<div class="content">
 
-<fieldset>
-	<legend>Data File Output</legend>
-	<form onsubmit="return false">
-	  <input type="text" name="name" value="diagdata.json">
-	  <input type="submit" value="Save As" onclick="download(this['name'].value)">
-	</form>
-</fieldset>
+	<fieldset>
+		<legend>Data File Input</legend>
+		<input type="file" accept=".json" id="myFile" value="Load">
+	</fieldset>
 
-<fieldset>
-	<legend>Geometry File Output</legend>
-	<form onsubmit="return false">
-	  <input type="text" name="name" value="contexts.json">
-	  <input type="submit" value="Save As" onclick="download2(this['name'].value)">
-	</form>
-</fieldset>
+	<fieldset>
+		<legend>Data File Output</legend>
+		<form onsubmit="return false">
+		  <input type="text" name="name" value="diagdata.json">
+		  <input type="submit" value="Save As" onclick="download(this['name'].value)">
+		</form>
+	</fieldset>
+
+	<fieldset>
+		<legend>Geometry File Output</legend>
+		<form onsubmit="return false">
+		  <input type="text" name="name" value="contexts.json">
+		  <input type="submit" value="Save As" onclick="download2(this['name'].value)">
+		</form>
+	</fieldset>
+
+</div>
 
 <fieldset>
 	<legend>Diagram Title</legend>
