@@ -67,7 +67,7 @@ function load(pictures) {
 	{
 		var option = document.createElement('option');
 		option.value = Path;
-		imagesAutocompleteCombo.appendChild(option);
+		document.getElementById("pictures").appendChild(option);
 	}
 }
 
