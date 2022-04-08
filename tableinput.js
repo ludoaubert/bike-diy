@@ -96,14 +96,14 @@ function displayCurrent()
 		document.getElementById("boxes").value = "";
 		document.getElementById("picture").value = "";
 	}
-	newBoxEditField.value='';
+	document.getElementById("new box").value='';
 }
 
 function addNewBox()
 {
-	const text = newBoxEditField.value;
+	const text = document.getElementById("new box").value;
 	currentBoxIndex = mydata.boxes.length;
-	mydata.boxes.push({title:newBoxEditField.value, id:currentBoxIndex, id_picture:-1});
+	mydata.boxes.push({title:document.getElementById("new box").value, id:currentBoxIndex, id_picture:-1});
 	console.log(mydata.boxes);
 	document.getElementById("boxes").add(new Option(text,text));
 	displayCurrent();
